@@ -3,13 +3,13 @@
 #
 # After loading the daily weather stations, hourly weather stations, daily weather station data and houly weather station data,
 # the following class can be used to calculate the minimum, mean and maximum of all attributes per district
-#   stations_dly: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_dly
-#   stations_hly: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly
-#   dly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data
-#   hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_dly_station_data
+#   stations_dly: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#stations_dly
+#   stations_hly: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#stations_hly
+#   dly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ab_hly_station_data
+#   hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ab_dly_station_data
 #
 # Output:
-#   - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_weather_combined)
+#   - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_weather_combined)
 # -------------------------------------------
 from dotenv import load_dotenv
 import sqlalchemy as sq
@@ -101,9 +101,9 @@ def pullHlyWeatherData(conn: sq.engine.Connection) -> pd.DataFrame:
     Loads the weather station data per province from the weather station data tables
 
     Tables:
-    - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
-    - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
-    - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
+    - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ab_hly_station_data)
+    - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#mb_hly_station_data)
+    - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#sk_hly_station_data)
 
     Psuedocode:
     - Create the weather station data SQL query
@@ -128,9 +128,9 @@ def pullDlyWeatherData(conn: sq.engine.Connection) -> pd.DataFrame:
     Loads the weather station data per province from the weather station data tables
 
     Tables:
-    - [ab_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_dly_station_data)
-    - [mb_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_dly_station_data)
-    - [sk_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_dly_station_data)
+    - [ab_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ab_dly_station_data)
+    - [mb_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#mb_dly_station_data)
+    - [sk_dly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#sk_dly_station_data)
 
     Psuedocode:
     - Create the weather station data SQL query
@@ -275,7 +275,7 @@ def pullStationData(conn: sq.engine.Connection) -> pd.DataFrame:
     Loads the weather stations from the daily weather station table
 
     Tables:
-    - [stations_dly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_dly)
+    - [stations_dly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#stations_dly)
 
     Psuedocode:
     - Create the weather station SQL query

@@ -6,7 +6,7 @@
 #  - Uses logs
 #
 # Output:
-# - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+# - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
 #
 # Remarks:
 # - null values - na.mask, null etc... can sometimes cause issues
@@ -217,7 +217,7 @@ def updateLog(fileName: str, message: str):
 def loadGeometry(conn: sq.engine.Connection) -> gpd.GeoDataFrame:
     """
     Purpose:
-    Load the [regions](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#census_ag_regions) from the database
+    Load the [regions](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#census_ag_regions) from the database
 
     Pseudocode:
     - Create the region SQL query
@@ -240,7 +240,7 @@ def getCompleteDates(conn: sq.engine.Connection) -> pd.DataFrame:
     Checks which days Copernicus data has already been pulled for
 
     Tables:
-    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
 
     Pseudocode:
     - Create the SQL query to load the dates which are already present in the database
@@ -557,7 +557,7 @@ def pullSatelliteData(
     Requests data, processes it then stores the Copernicus Satellite data
 
     Tables:
-    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
 
     Psuedocode:
     - Adds a time delay (prevents being detected as a bot)

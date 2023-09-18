@@ -16,8 +16,8 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Creates the SQL query to load weather stations (unexecuted)
 
         Tables:
-        - [dly stations](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_dly)
-        - [hly stations](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly)
+        - [dly stations](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#stations_dly)
+        - [hly stations](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#stations_hly)
 
         Remarks:
         - Province is an abbreviation
@@ -35,7 +35,7 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Request the date (YEAR-MO-DA) a station was last updated
 
         Tables:
-        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#station_data_last_updated)
         """
         return f"""
         SELECT last_updated, is_active FROM public.station_data_last_updated
@@ -48,7 +48,7 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Read the results from our request for the date (YEAR-MO-DA) a station was last updated (from getLastUpdatedReq)
 
         Tables:
-        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#station_data_last_updated)
 
         Pseudocode:
         - Check if the query was successful
@@ -78,9 +78,9 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Manually creates the SQL tables to store the hourly weather station data
 
         Tables:
-        - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
-        - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
-        - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
+        - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ab_hly_station_data)
+        - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#mb_hly_station_data)
+        - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#sk_hly_station_data)
 
         Remarks: Creating the table manually ensures the tables persist (usually due to the inability to locate a unique key)
         """
@@ -123,7 +123,7 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         - date (string) and is active flag (boolean)
 
         Table:
-        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#station_data_last_updated)
 
         Remarks: Creating the table manually ensures the tables persist (usually due to the inability to locate a unique key)
         """
@@ -144,7 +144,7 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Changes the recorded date a station was last updated
 
         Table:
-        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#station_data_last_updated)
 
         Remarks:
         This function is used when the station has already been queried before
@@ -162,7 +162,7 @@ class WeatherQueryBuilder(GenericQueryBuilder):
         Adds the recorded date a station was last updated
 
         Table:
-        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+        - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#station_data_last_updated)
 
         Remarks:
         This function is used when the station has never been queried before

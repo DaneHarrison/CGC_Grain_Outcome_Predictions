@@ -250,7 +250,7 @@ class SetCreator:
         Checks if the soil data has been aggregated, if not, proceeds to aggregate it
 
         Table:
-        - [agg_soil_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_data)
+        - [agg_soil_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_soil_data)
 
         Pseudocode:
         - Generate query used to check if the table exists
@@ -271,7 +271,7 @@ class SetCreator:
         Checks if the ergot data has been aggregated, if not, proceeds to aggregate it
 
         Table:
-        - [agg_ergot_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample)
+        - [agg_ergot_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_ergot_sample)
 
         Pseudocode:
         - Generate query used to check if the table exists

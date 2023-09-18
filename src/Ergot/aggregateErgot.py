@@ -4,7 +4,7 @@
 # The purpose of this code is to perform data transformation and aggregation to create the two versions of the aggregated table with different sets of features.
 #
 # Output:
-# [agg_ergot_sample](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample)
+# [agg_ergot_sample](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_ergot_sample)
 #
 # Remarks: null values - na.mask, null etc... can sometimes cause issues
 # -------------------------------------------

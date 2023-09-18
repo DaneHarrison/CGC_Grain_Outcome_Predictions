@@ -5,36 +5,36 @@
 #
 # Required tables:
 # -------------------------------------------
-# - [COMBINED_WEATHER_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_weather_combined)
-# - [COPERNICUS_WEATHER_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
-# - [SOIL_MOISTURE_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_moisture)
-# - [AGG_ERGOT_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample_v2)
-# - [ERGOT_SAMPLES_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ergot_sample_feat_eng)
+# - [COMBINED_WEATHER_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_weather_combined)
+# - [COPERNICUS_WEATHER_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
+# - [SOIL_MOISTURE_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_soil_moisture)
+# - [AGG_ERGOT_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_ergot_sample_v2)
+# - [ERGOT_SAMPLES_TABLE](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ergot_sample_feat_eng)
 #
 # Output:
 # -------------------------------------------
-# - [dataset_daily_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_sat)
-# - [dataset_weekly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_sat)
-# - [dataset_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_sat)
-# - [dataset_cross_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_monthly_sat)
-# - [dataset_cross_weekly_sat_JFMA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_sat_JFMA)
-# - [dataset_cross_weekly_sat_MAMJ](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_sat_MAMJ)
-# - [dataset_cross_weekly_sat_MJJA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_sat_MJJA)
-# - [dataset_cross_weekly_sat_JASO](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_sat_JASO)
-# - [dataset_daily_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_station)
-# - [dataset_weekly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_station)
-# - [dataset_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_station)
-# - [dataset_cross_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_monthly_station)
-# - [dataset_cross_weekly_station_JFMA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_station_JFMA)
-# - [dataset_cross_weekly_station_MAMJ](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_station_MAMJ)
-# - [dataset_cross_weekly_station_MJJA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_station_MJJA)
-# - [dataset_cross_weekly_station_JASO](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_cross_weekly_station_JASO)
-# - [dataset_daily_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_sat_soil)
-# - [dataset_weekly_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_sat_soil)
-# - [dataset_monthly_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_sat_soil)
-# - [dataset_daily_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_station_soil)
-# - [dataset_weekly_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_station_soil)
-# - [dataset_monthly_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_station_soil)
+# - [dataset_daily_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_sat)
+# - [dataset_weekly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_sat)
+# - [dataset_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_sat)
+# - [dataset_cross_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_monthly_sat)
+# - [dataset_cross_weekly_sat_JFMA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_sat_JFMA)
+# - [dataset_cross_weekly_sat_MAMJ](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_sat_MAMJ)
+# - [dataset_cross_weekly_sat_MJJA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_sat_MJJA)
+# - [dataset_cross_weekly_sat_JASO](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_sat_JASO)
+# - [dataset_daily_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_station)
+# - [dataset_weekly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_station)
+# - [dataset_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_station)
+# - [dataset_cross_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_monthly_station)
+# - [dataset_cross_weekly_station_JFMA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_station_JFMA)
+# - [dataset_cross_weekly_station_MAMJ](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_station_MAMJ)
+# - [dataset_cross_weekly_station_MJJA](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_station_MJJA)
+# - [dataset_cross_weekly_station_JASO](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_cross_weekly_station_JASO)
+# - [dataset_daily_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_sat_soil)
+# - [dataset_weekly_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_sat_soil)
+# - [dataset_monthly_sat_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_sat_soil)
+# - [dataset_daily_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_station_soil)
+# - [dataset_weekly_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_station_soil)
+# - [dataset_monthly_station_soil](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_station_soil)
 # -------------------------------------------
 from datetime import datetime as dt
 from dotenv import load_dotenv
@@ -129,7 +129,7 @@ def pullWeatherStationData() -> pd.DataFrame:
     Loads the weather station data from the combined weather station data table
 
     Tables:
-    - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_weather_combined)
+    - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_weather_combined)
 
     Psuedocode:
     - Get a connection to the database
@@ -156,7 +156,7 @@ def pullWeatherCopernicusData() -> pd.DataFrame:
     Loads the Copernicus data from the Copernicus weather data table
 
     Tables:
-    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
 
     # Psuedocode:
     - Get a connection to the database
@@ -183,7 +183,7 @@ def pullSoilMoistureData() -> pd.DataFrame:
     Loads the soil moisture data from the Satellite soil moisture data table
 
     Tables:
-    - [agg_soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_moisture)
+    - [agg_soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_soil_moisture)
 
     Psuedocode:
     - Get a connection to the database
@@ -212,7 +212,7 @@ def pullAggErgotData() -> pd.DataFrame:
     Loads the ergot data from the aggregated ergot data table
 
     Tables:
-    - [agg_ergot_sample_v2](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample_v2)
+    - [agg_ergot_sample_v2](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_ergot_sample_v2)
 
     Psuedocode:
     - Get a connection to the database
@@ -252,7 +252,7 @@ def pullIndividualErgotSampleData() -> pd.DataFrame:
     Loads the ergot data from the individual ergot sample data table
 
     Tables:
-    - [ergot_sample_feat_eng](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ergot_sample_feat_eng)
+    - [ergot_sample_feat_eng](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ergot_sample_feat_eng)
 
     Psuedocode:
     - Get a connection to the database
@@ -279,8 +279,8 @@ def addErgotData(df: pd.DataFrame) -> pd.DataFrame:
     Loads the ergot data from the ergot sample data tables and join them together
 
     Tables:
-    - [agg_ergot_sample_v2](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample_v2)
-    - [ergot_sample_feat_eng](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ergot_sample_feat_eng)
+    - [agg_ergot_sample_v2](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_ergot_sample_v2)
+    - [ergot_sample_feat_eng](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#ergot_sample_feat_eng)
 
     Psuedocode:
     - Get the ergot data
@@ -302,7 +302,7 @@ def getDailySat() -> pd.DataFrame:
     Loads the Copernicus data from the Copernicus weather data table and preproccesses it
 
     Tables:
-    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+    - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_day_copernicus_satellite_data)
 
     Psuedocode:
     - Load the Copernicus data
@@ -325,7 +325,7 @@ def getDailyStation() -> pd.DataFrame:
     Loads the Weather station data from the weather station data table and preproccesses it
 
     Tables:
-    - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_weather_combined)
+    - [agg_weather_combined](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_weather_combined)
 
     Psuedocode:
     - Load the data
@@ -348,7 +348,7 @@ def getDailySoil() -> pd.DataFrame:
     Loads the soil moisture data from the satellite soil moisture data table and preproccesses it
 
     Tables:
-    - [agg_soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_moisture)
+    - [agg_soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_soil_moisture)
 
     Psuedocode:
     - Load the data
@@ -795,7 +795,7 @@ def getDatasetDailySat() -> pd.DataFrame:
     Loads the daily Copernicus satellite data from the daily Copernicus satellite data table
 
     Tables:
-    - [dataset_daily_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_sat)
+    - [dataset_daily_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_sat)
 
     Psuedocode:
     - Get a connection to the database
@@ -822,7 +822,7 @@ def getDatasetDailyStation() -> pd.DataFrame:
     Loads the daily weather station data from the daily weather station data table
 
     Tables:
-    - [dataset_daily_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_daily_station)
+    - [dataset_daily_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_daily_station)
 
     Psuedocode:
     - Get a connection to the database
@@ -849,7 +849,7 @@ def getDatasetWeeklySat() -> pd.DataFrame:
     Loads the weekly Copernicus data from the weekly Copernicus satellite weather data table
 
     Tables:
-    - [dataset_weekly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_sat)
+    - [dataset_weekly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_sat)
 
     Psuedocode:
     - Get a connection to the database
@@ -876,7 +876,7 @@ def getDatasetWeeklyStation() -> pd.DataFrame:
     Loads the weekly weather station data from the weekly weather station data table
 
     Tables:
-    - [dataset_weekly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_weekly_station)
+    - [dataset_weekly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_weekly_station)
 
     Psuedocode:
     - Get a connection to the database
@@ -903,7 +903,7 @@ def getDatasetMonthlySat() -> pd.DataFrame:
     Loads the monthly Copernicus data from the monthly Copernicus satellite weather data table
 
     Tables:
-    - [dataset_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_sat)
+    - [dataset_monthly_sat](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_sat)
 
     Psuedocode:
     - Get a connection to the database
@@ -930,7 +930,7 @@ def getDatasetMonthlyStation() -> pd.DataFrame:
     Loads the monthly weather station data from the monthly weather station data table
 
     Tables:
-    - [dataset_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#dataset_monthly_station)
+    - [dataset_monthly_station](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#dataset_monthly_station)
 
     Psuedocode:
     - Get a connection to the database

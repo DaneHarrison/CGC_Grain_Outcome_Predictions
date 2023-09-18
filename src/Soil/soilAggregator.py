@@ -6,7 +6,7 @@
 #   agriculture regions data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
-#   agg_soil_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_data
+#   agg_soil_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#agg_soil_data
 # -------------------------------------------
 from dotenv import load_dotenv
 import geopandas as gpd  # type: ignore
@@ -85,7 +85,7 @@ class SoilAggregator:
 
     def pullSoilData(self, conn: sq.engine.Connection) -> pd.DataFrame:
         """
-        Loads the soil property data per province and soil code from the soil data table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_data))
+        Loads the soil property data per province and soil code from the soil data table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#soil_data))
 
         Psuedocode:
         - Create the soil data SQL query
@@ -128,7 +128,7 @@ class SoilAggregator:
     def pullSurroundingSoil(self, conn: sq.engine.Connection) -> pd.DataFrame:
         """
         Purpose:
-        Loads the land composition details around each soil geometry from the soil surronding land table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_surronding_land))
+        Loads the land composition details around each soil geometry from the soil surronding land table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#soil_surronding_land))
 
         Psuedocode:
         - Create the surronding soil SQL query
@@ -144,7 +144,7 @@ class SoilAggregator:
     def pullSoilComponents(self, conn: sq.engine.Connection) -> pd.DataFrame:
         """
         Purpose:
-        Loads the soil components (different soils) per soil geometry from the soil components table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_components))
+        Loads the soil components (different soils) per soil geometry from the soil components table ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#soil_components))
 
         Psuedocode:
         - Create the soil component SQL query
@@ -168,7 +168,7 @@ class SoilAggregator:
     def pullSoilGeometry(self, conn: sq.engine.Connection) -> pd.DataFrame:
         """
         Purpose:
-        Loads the agriculture regions ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#census_ag_regions)) and then associates each soil geometry ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_geometry)) with their respective distirct
+        Loads the agriculture regions ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#census_ag_regions)) and then associates each soil geometry ([readme](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#soil_geometry)) with their respective distirct
 
         Psuedocode:
         - Create the agriculture region SQL query

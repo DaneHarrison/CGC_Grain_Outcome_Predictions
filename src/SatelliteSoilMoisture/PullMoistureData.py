@@ -8,7 +8,7 @@
 # - soil moisture data: https://www.esa.int/Applications/Observing_the_Earth/Space_for_our_climate/Nearly_four_decades_of_soil_moisture_data_now_available
 #
 # Output:
-# - soil_moisture: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_moisture
+# - soil_moisture: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#soil_moisture
 # -------------------------------------------
 from dotenv import load_dotenv
 import geopandas as gpd  # type: ignore
@@ -160,7 +160,7 @@ def get_nc_file_list(folder_path: str) -> list:
 def loadGeometry(conn: sq.engine.Connection) -> gpd.GeoDataFrame:
     """
     Purpose:
-    Load the [regions](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#census_ag_regions) from the database
+    Load the [regions](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject#census_ag_regions) from the database
 
     Pseudocode:
     - Create the region SQL query
