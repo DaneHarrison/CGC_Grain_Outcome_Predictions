@@ -2,13 +2,13 @@
 # scrapeDaily.py
 #
 # After loading the daily weather stations data the following class can be used to scrape the daily weather station data
-#   daily weather stations: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb
+#   daily weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
-#   ab_dly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ab_dly_station_data
-#   mb_dly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#mb_dly_station_data
-#   sk_dly_station_data https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#sk_dly_station_data
-#   station_data_last_updated: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#station_data_last_updated
+#   ab_dly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_dly_station_data
+#   mb_dly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_dly_station_data
+#   sk_dly_station_data https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_dly_station_data
+#   station_data_last_updated: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated
 #
 # Remarks: if the need to pull earlier data arises, changes will need to be made to avoid checking the last date pulled
 # as well as changing the minimum year from 1995
@@ -130,8 +130,8 @@ def checkTables(db: DataService, queryHandler: WeatherQueryBuilder):
     Checks if the necessary tables exist, if not, and if possible they are created. Otherwise the script exits.
 
     Tables:
-    - [stations_dly](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_dly)
-    - [station_data_last_updated](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+    - [stations_dly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_dly)
+    - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
 
     Pseudocode:
     - Create the query to check if the daily stations are loaded into the database
@@ -166,7 +166,7 @@ def storeLastUpdated(
     Stores the date a station was last updated
 
     Tables:
-    - [station_data_last_updated](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+    - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
 
     Pseudocode:
     - Check if lastUpdated is a valid date (np.datetime64)
@@ -193,8 +193,8 @@ def getStations(
     Gets the daily stations as well as the metadata on when they were last updated
 
     Tables:
-    - [stations_dly](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_dly)
-    - [station_data_last_updated](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#station_data_last_updated)
+    - [stations_dly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_dly)
+    - [station_data_last_updated](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#station_data_last_updated)
 
     Pseudocode:
     - Create the SQL query for the dly weather stations

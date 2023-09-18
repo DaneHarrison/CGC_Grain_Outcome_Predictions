@@ -2,7 +2,7 @@
 # moistureAggregator.py
 #
 # After loading the soil moisture data the following class can be used to calculate the minimum, mean and maximum of all attributes per district
-#   soil_moisture: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#soil_moisture
+#   soil_moisture: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_moisture
 #
 # Output:
 #   An excel document with the expected output columns (saves as specified by pathToSave i.e datasets uses datasets/data/)
@@ -226,7 +226,7 @@ class MoistureAggregator:
         Loads the soil moisture data from the soil moisture table
 
         Tables:
-        - [soil_moisture](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#soil_moisture)
+        - [soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_moisture)
 
         Psuedocode:
         - Create the weather station data SQL query

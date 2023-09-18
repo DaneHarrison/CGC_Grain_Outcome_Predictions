@@ -2,10 +2,10 @@
 # hlyAggregator.py
 #
 # After loading the hourly weather station data the following class can be used to calculate the minimum, mean and maximum of all attributes per district
-#   stations_hly: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_hly
-#   ab_hly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ab_hly_station_data
-#   mb_hly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#mb_hly_station_data
-#   sk_hly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#sk_hly_station_data
+#   stations_hly: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly
+#   ab_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data
+#   mb_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data
+#   sk_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data
 #
 # Output:
 #   An excel document with the expected output columns (saves as specified by pathToSave i.e datasets uses datasets/data/)
@@ -343,9 +343,9 @@ class HlyAggregator:
         Loads the weather station data per province from the weather station data tables
 
         Tables:
-        - [ab_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
-        - [mb_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
-        - [sk_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
+        - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
+        - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
+        - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
 
         Psuedocode:
         - Create the weather station data SQL query
@@ -369,7 +369,7 @@ class HlyAggregator:
         Loads the weather stations from the hourly weather station table
 
         Tables:
-        - [stations_hly](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_hly)
+        - [stations_hly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly)
 
         Psuedocode:
         - Create the weather station SQL query

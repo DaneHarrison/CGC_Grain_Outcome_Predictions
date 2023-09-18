@@ -1,14 +1,14 @@
 # -------------------------------------------
 # PullMoistureData.ipynb
 #
-# After [agriculture regions have been loaded](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb)
+# After [agriculture regions have been loaded](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb)
 # and the soil moisture files have been downloaded, this script will load satellite soil moisture data into the database
 #
 # Required files:
 # - soil moisture data: https://www.esa.int/Applications/Observing_the_Earth/Space_for_our_climate/Nearly_four_decades_of_soil_moisture_data_now_available
 #
 # Output:
-# - soil_moisture: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#soil_moisture
+# - soil_moisture: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_moisture
 # -------------------------------------------
 from dotenv import load_dotenv
 import geopandas as gpd  # type: ignore
@@ -160,7 +160,7 @@ def get_nc_file_list(folder_path: str) -> list:
 def loadGeometry(conn: sq.engine.Connection) -> gpd.GeoDataFrame:
     """
     Purpose:
-    Load the [regions](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#census_ag_regions) from the database
+    Load the [regions](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#census_ag_regions) from the database
 
     Pseudocode:
     - Create the region SQL query

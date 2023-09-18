@@ -9,7 +9,7 @@
 #         Manually creates the SQL tables to store the soil moisture Data
 
 #         Table:
-#         - [ergot_sample](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ergot_sample)
+#         - [ergot_sample](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ergot_sample)
 
 #         Pseudocode:
 #         - Check if the table already exists

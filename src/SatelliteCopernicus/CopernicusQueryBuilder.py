@@ -22,7 +22,7 @@ class CopernicusQueryBuilder(GenericQueryBuilder):
         Manually creates the SQL tables to store the Copernicus Satellite Data
 
         Table:
-        - [agg_day_copernicus_satellite_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
+        - [agg_day_copernicus_satellite_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_day_copernicus_satellite_data)
 
         Pseudocode:
         - Check if the table already exists

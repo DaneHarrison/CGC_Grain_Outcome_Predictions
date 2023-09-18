@@ -22,7 +22,7 @@ class SoilMoistureQueryHandler(GenericQueryBuilder):
         Manually creates the SQL tables to store the soil moisture data
 
         Table:
-        - [soil_moisture](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#soil_moisture)
+        - [soil_moisture](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#soil_moisture)
 
         Pseudocode:
         - Check if the table already exists

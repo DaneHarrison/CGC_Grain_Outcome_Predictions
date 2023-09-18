@@ -2,12 +2,12 @@
 # scrapeHourlyParallel.py
 #
 # After loading the hourly weather stations data the following class can be used to scrape the hourly weather station data
-#   hourly weather stations: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb
+#   hourly weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
-#   ab_hly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ab_hly_station_data
-#   mb_hly_station_data: https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#mb_hly_station_data
-#   sk_hly_station_data https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#sk_hly_station_data
+#   ab_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data
+#   mb_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data
+#   sk_hly_station_data https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data
 #
 # Remarks: When tables are updated in the future/the script is ran again, data already pulled may be duplicated
 # -------------------------------------------
@@ -105,9 +105,9 @@ def pullHourlyData(index: int, row: gpd.GeoSeries, numStations: int, tablename: 
     Pulls the hourly data and updates the database
 
     Tables:
-    - [ab_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
-    - [mb_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
-    - [sk_hly_station_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
+    - [ab_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data)
+    - [mb_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#mb_hly_station_data)
+    - [sk_hly_station_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#sk_hly_station_data)
 
     Pseudocode:
     - Connect to the database
@@ -185,7 +185,7 @@ def checkTables(db: DataService, queryHandler: WeatherQueryBuilder):
     Checks if the necessary tables exist, if not, the script exits
 
     Tables:
-    - [stations_hly](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_hly)
+    - [stations_hly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly)
 
     Pseudocode:
     - Create the query to check if the hourly stations are loaded into the database
@@ -210,7 +210,7 @@ def getStations(
     Gets the hourly stations
 
     Tables:
-    - [stations_hly](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#stations_hly)
+    - [stations_hly](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#stations_hly)
 
     Pseudocode:
     - Create the SQL query for the hly weather stations

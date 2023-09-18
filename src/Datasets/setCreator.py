@@ -32,7 +32,7 @@
 #   - The creation of these datasets depend heavily upon Sets, this means that while they dont have to be used these are their varying column requirements:
 #       - year
 #       - district
-#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions/blob/main/src/Shared/aggregatorHelper.py)
+#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Shared/aggregatorHelper.py)
 #         i.e MO-DA:ATTRIBUTE, W:ATTRIBUTE, M:ATTRIBUTE
 #   - Due the sheer size of this class, it is a singleton. This means only one instance can be created thus making it quicker to load afterwards
 # -------------------------------------------
@@ -250,7 +250,7 @@ class SetCreator:
         Checks if the soil data has been aggregated, if not, proceeds to aggregate it
 
         Table:
-        - [agg_soil_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#agg_soil_data)
+        - [agg_soil_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_data)
 
         Pseudocode:
         - Generate query used to check if the table exists
@@ -271,7 +271,7 @@ class SetCreator:
         Checks if the ergot data has been aggregated, if not, proceeds to aggregate it
 
         Table:
-        - [agg_ergot_data](https://github.com/ChromaticPanic/CGC_Grain_Outcome_Predictions#agg_ergot_sample)
+        - [agg_ergot_data](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_ergot_sample)
 
         Pseudocode:
         - Generate query used to check if the table exists
