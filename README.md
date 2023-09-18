@@ -3200,6 +3200,8 @@ This table is used to maintain the other weather station data tables using the d
 - [Canadian Soil Landing Page](https://sis.agr.gc.ca/cansis/nsdb/slc/v3.2/index.html)
 - [Canadian Soil Entity Relationship Map](https://sis.agr.gc.ca/cansis/nsdb/slc/v3.2/model.html)
 - [OAS Weather Station API Documentation](https://api.weather.gc.ca/openapi?f=html#/)
+- [Cleaning Data for Effective Data Science](https://www.amazon.ca/Cleaning-Data-Effective-Science-command-line/dp/1801071292/ref=sr_1_1?keywords=data+cleaning&sr=8-1)
+- [Hands-On Machine Learning with Scikit-Learn](https://www.amazon.ca/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1098125975/ref=asc_df_1098125975/?hvadid=578924463326&hvpos=&hvnetw=g&hvrand=9094908218412224549&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9001206&hvtargid=pla-1651497364252&psc=1)
 
 
 [back to top](#overview)
