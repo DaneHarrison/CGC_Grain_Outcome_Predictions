@@ -4,14 +4,14 @@
 # After loading all datasets then aggregating them, the following class can be used to create exploratory datasets from all the data
 #
 # Aggregated data currently supported by this set:
-#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Soil/soilAggregator.py)
-#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Ergot/ergotAggregator.py)
+#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Soil/soilAggregator.py)
+#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Ergot/ergotAggregator.py)
 #
 # Remarks:
 #   - the columns bad ergot sets expect from input data to run properly are:

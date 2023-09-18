@@ -4,14 +4,14 @@
 # After loading all datasets then aggregating them, the following class can be used to create exploratory datasets
 #
 # Aggregated data currently supported by this set:
-#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/hlyAggregator.py)
-#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Soil/soilAggregator.py)
-#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Ergot/ergotAggregator.py)
+#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
+#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Soil/soilAggregator.py)
+#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Ergot/ergotAggregator.py)
 #
 # Remarks:
 #   - this is an abstract class, this means no instances can be created, rather its use is to reduce code duplication accross the other set classes

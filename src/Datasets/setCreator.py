@@ -32,7 +32,7 @@
 #   - The creation of these datasets depend heavily upon Sets, this means that while they dont have to be used these are their varying column requirements:
 #       - year
 #       - district
-#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/Shared/aggregatorHelper.py)
+#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Shared/aggregatorHelper.py)
 #         i.e MO-DA:ATTRIBUTE, W:ATTRIBUTE, M:ATTRIBUTE
 #   - Due the sheer size of this class, it is a singleton. This means only one instance can be created thus making it quicker to load afterwards
 # -------------------------------------------

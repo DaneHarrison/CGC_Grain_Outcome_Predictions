@@ -1,7 +1,7 @@
 # -------------------------------------------
 # PullMoistureData.ipynb
 #
-# After [agriculture regions have been loaded](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/main/src/WeatherStation/importBoundariesAndStations.ipynb)
+# After [agriculture regions have been loaded](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/importBoundariesAndStations.ipynb)
 # and the soil moisture files have been downloaded, this script will load satellite soil moisture data into the database
 #
 # Required files:
