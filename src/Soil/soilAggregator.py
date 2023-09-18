@@ -258,7 +258,7 @@ class SoilAggregator:
         for index in range(len(merge_df)):
             for col in cols:
                 merge_df.loc[index, col] = (
-                    merge_df.loc[index, "percent"] * merge_df.loc[index, col] * 0.01
+                    merge_df.loc[index, "percent"] * merge_df.loc[index, col] * 0.01  # type: ignore
                 )
 
         merge_df.drop(
