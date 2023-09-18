@@ -2,7 +2,7 @@
 # scrapeHourlyParallel.py
 #
 # After loading the hourly weather stations data the following class can be used to scrape the hourly weather station data
-#   hourly weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/importBoundariesAndStations.ipynb
+#   hourly weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
 #   ab_hly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_hly_station_data

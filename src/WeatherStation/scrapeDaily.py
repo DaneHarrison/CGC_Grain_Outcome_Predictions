@@ -2,7 +2,7 @@
 # scrapeDaily.py
 #
 # After loading the daily weather stations data the following class can be used to scrape the daily weather station data
-#   daily weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/importBoundariesAndStations.ipynb
+#   daily weather stations: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
 #   ab_dly_station_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#ab_dly_station_data

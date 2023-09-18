@@ -231,7 +231,7 @@ These can later be verified by running
 - Visualization
 - Feature engineering
 
-**NOTE**: Gathering and aggregating data can easily be done using the [loadData notebook](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/loadData.ipynb) 
+**NOTE**: Gathering and aggregating data can easily be done using the [loadData notebook](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/loadData.ipynb) 
 
 
 ### 2. Dataset Selection

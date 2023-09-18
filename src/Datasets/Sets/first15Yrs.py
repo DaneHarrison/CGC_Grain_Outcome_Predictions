@@ -5,14 +5,14 @@
 # The first 15 years of data appear between 1995 - 2009 (inclusive)
 #
 # Aggregated data currently supported by this set:
-#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Soil/soilAggregator.py)
-#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Ergot/ergotAggregator.py)
+#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Soil/soilAggregator.py)
+#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Ergot/ergotAggregator.py)
 #
 # Remarks:
 #   - the columns first 15 year sets expect from input data to run properly are:

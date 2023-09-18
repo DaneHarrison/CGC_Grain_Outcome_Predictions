@@ -8,20 +8,20 @@
 #   - Monthly: Month 3 - Month 4 (inclusive)
 #
 # Aggregated data currently supported by this set:
-#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/hlyAggregator.py)
-#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/SatelliteSoilMoisture/moistureAggregator.py)
-#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Soil/soilAggregator.py)
-#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Ergot/ergotAggregator.py)
+#   - [hlyByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [hlyByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/hlyAggregator.py)
+#   - [moistureByDayDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByWeekDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [moistureByMonthDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/SatelliteSoilMoisture/moistureAggregator.py)
+#   - [soilDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Soil/soilAggregator.py)
+#   - [ergotDF](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Ergot/ergotAggregator.py)
 #
 # Remarks:
 #   - the columns spring sets expect from input data to run properly are:
 #       - year
 #       - district
-#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Shared/aggregatorHelper.py)
+#       - The last column must adhere to the formats set by the [aggregatorHelper](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Shared/aggregatorHelper.py)
 #         i.e MO-DA:ATTRIBUTE, W:ATTRIBUTE, M:ATTRIBUTE
 #
 #   - empty DataFrames are provided so that there is more flexibility in loading datasets i.e not all of them need to be provided

@@ -2,8 +2,8 @@
 # soilAggregation.py
 #
 # After loading the soil data and agriculture regions data the following class can be used to aggregate the soil data per district
-#   soil data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/Soil/importSoil.ipynb
-#   agriculture regions data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/main/src/WeatherStation/importBoundariesAndStations.ipynb
+#   soil data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Soil/importSoil.ipynb
+#   agriculture regions data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/WeatherStation/importBoundariesAndStations.ipynb
 #
 # Output table:
 #   agg_soil_data: https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions#agg_soil_data
