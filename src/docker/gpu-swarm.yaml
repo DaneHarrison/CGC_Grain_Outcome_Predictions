@@ -1,4 +1,5 @@
 version: '3.8'
+name: "CGC_Grain_Predictions"
 services:
 
   postgres:
@@ -44,3 +45,12 @@ services:
       - ../../src:/data
     ports:
       - '8888:8888'
+
+  server:
+    build: 
+      context: ../
+      dockerfile: ./docker/server/Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - '4000:4000'  
