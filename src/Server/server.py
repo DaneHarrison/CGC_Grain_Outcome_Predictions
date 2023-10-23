@@ -1,14 +1,32 @@
 from flask import Flask, request, jsonify, render_template, Response, abort
 from flask_restful import Resource, Api
 import json, base64, sys, os
+from flask_cors import CORS
+import sqlalchemy as sq
+import geopandas as gpd
+sys.path.append(os.getcwd())
 
+from Shared.DataService import DataService
+db = DataService()
+conn = db.connect()
 #from logic.worker.logic import Logic
 
 
 # app = Flask(__name__)  # Flask server instance
 
+regionQuery = sq.text("select district, geometry, color FROM public.census_ag_regions WHERE pr_uid = 46 OR pr_uid = 47 OR pr_uid = 48")
+
+ag_regions = gpd.GeoDataFrame.from_postgis(
+    regionQuery, conn, geom_col="geometry"
+)
+ag_regions = ag_regions.set_crs("EPSG:3347", allow_override=True)
+
+ag_regions = ag_regions.to_crs(crs="EPSG:4326")
+
+
 app = Flask(__name__, template_folder='../presentation/build/', static_folder='../presentation/build/static/')
 app.config['UPLOAD_FOLDER'] = './'
+CORS(app)
 
 api = Api(app)         # Controls the Flask server API
 
@@ -22,7 +40,8 @@ PORT = 4000         # The workers port
 
 class CGC_GRAIN_PREDICTIONS(Resource):
     def get(self,):
-        response = None
+        print(ag_regions)
+        response = ag_regions.to_json()
         
         # if 'img' not in request.files:
         #     abort(400, description='img not found')
@@ -37,7 +56,7 @@ class CGC_GRAIN_PREDICTIONS(Resource):
         #             'meanFace': str(base64.b64encode(results.MeanFace))
         #         }
     
-        return jsonify(response)
+        return response
 
 
 #api.add_resource(Index, '/')

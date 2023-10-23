@@ -30,7 +30,6 @@ types-SQLAlchemy
 imblearn
 xgboost
 keras_tuner
-tensorflow
 aniso8601==9.0.1
 blinker==1.6.3
 click==8.1.7
