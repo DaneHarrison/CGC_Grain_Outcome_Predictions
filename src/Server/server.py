@@ -4,25 +4,20 @@ import json, base64, sys, os
 from flask_cors import CORS
 import sqlalchemy as sq
 import geopandas as gpd
+import pandas as pd
 sys.path.append(os.getcwd())
 
 from Shared.DataService import DataService
 db = DataService()
 conn = db.connect()
-#from logic.worker.logic import Logic
 
-
-# app = Flask(__name__)  # Flask server instance
-
-regionQuery = sq.text("select district, geometry, color FROM public.census_ag_regions WHERE pr_uid = 46 OR pr_uid = 47 OR pr_uid = 48")
-
-ag_regions = gpd.GeoDataFrame.from_postgis(
-    regionQuery, conn, geom_col="geometry"
-)
+regionQuery = sq.text("SELECT district, geometry, color FROM public.census_ag_regions WHERE pr_uid = 46 OR pr_uid = 47 OR pr_uid = 48")
+ag_regions = gpd.GeoDataFrame.from_postgis(regionQuery, conn, geom_col="geometry")
 ag_regions = ag_regions.set_crs("EPSG:3347", allow_override=True)
-
 ag_regions = ag_regions.to_crs(crs="EPSG:4326")
 
+stationQuery = sq.text('SELECT province, latitude, longitude, elevation, MIN(hly_first_year) AS first_year, MAX(hly_last_year) AS last_year FROM public.stations_hly WHERE district IS NOT NULL GROUP BY latitude, longitude, elevation, province;')
+stations = pd.read_sql_query(stationQuery, conn)
 
 app = Flask(__name__, template_folder='../presentation/build/', static_folder='../presentation/build/static/')
 app.config['UPLOAD_FOLDER'] = './'
@@ -38,27 +33,16 @@ PORT = 4000         # The workers port
 #     def get(self,):
 #         return Response(render_template('index.html'), mimetype='text/html')
 
-class CGC_GRAIN_PREDICTIONS(Resource):
+class AgRegions(Resource):
     def get(self,):
-        print(ag_regions)
-        response = ag_regions.to_json()
-        
-        # if 'img' not in request.files:
-        #     abort(400, description='img not found')
-        # else:
-        #     img = request.files['img']
-        #     results = logic.runEigenFace(img.read())
-            
-        #     if results:
-        #         response = {
-        #             'name': results.Name,
-        #             'photo': str(base64.b64encode(results.Photo)),
-        #             'meanFace': str(base64.b64encode(results.MeanFace))
-        #         }
-    
-        return response
+        return ag_regions.to_json()
+
+class Stations(Resource):
+    def get(self,):
+        return stations.to_json()
 
 
 #api.add_resource(Index, '/')
-api.add_resource(CGC_GRAIN_PREDICTIONS, '/')
+api.add_resource(AgRegions, '/agRegions/')
+api.add_resource(Stations, '/stations/')
 app.run(host=HOST, port=PORT, debug=True)

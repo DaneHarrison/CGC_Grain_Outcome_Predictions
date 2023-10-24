@@ -16,25 +16,25 @@ export default class DataPicker extends React.Component {
     }
 
 
-    modDateByCalendar = date => this.setState({date})
+    modDateByCalendar = date => this.props.setDate(date)
 
     modDate(increase) {
-        let prevDateTime = this.state.date.getTime();
+        let prevDateTime = this.props.date.getTime();
         let change = increase ? 1 : -1;
         let nxtMonth, currYear, numDaysInMonth;
 
-        switch(this.state.aggType) {
+        switch(this.props.aggType) {
             case 'DAY':
-                this.setState({date: new Date(prevDateTime + change * 24 * 60 * 60 * 1000)})
+                this.props.setDate(new Date(prevDateTime + change * 24 * 60 * 60 * 1000))
                 break;
 
             case 'WEEK':
-                this.setState({date: new Date(prevDateTime + change * 7 * 24 * 60 * 60 * 1000)})
+                this.props.setDate(new Date(prevDateTime + change * 7 * 24 * 60 * 60 * 1000))
                 break;
 
             case 'MONTH':
-                nxtMonth = this.state.date.getMonth() + 1
-                currYear = this.state.date.getFullYear() - 1
+                nxtMonth = this.props.date.getMonth() + 1
+                currYear = this.props.date.getFullYear() - 1
 
                 if(nxtMonth > 11) {
                     currYear += 1
@@ -45,16 +45,16 @@ export default class DataPicker extends React.Component {
                 numDaysInMonth = new Date(currYear, nxtMonth, 0)
                 numDaysInMonth = numDaysInMonth.getDate()
 
-                this.setState({date: new Date(prevDateTime + change * numDaysInMonth * 24 * 60 * 60 * 1000)});
+                this.props.setDate(new Date(prevDateTime + change * numDaysInMonth * 24 * 60 * 60 * 1000));
                 break;
         }
     }
 
     modYear(increase) {
-        let prevDateTime = this.state.date.getTime();
+        let prevDateTime = this.props.date.getTime();
         let change = increase ? 1 : -1;
 
-        this.setState({date: new Date(prevDateTime + change * 365 * 24 * 60 * 60 * 1000)});
+        this.props.setDate(new Date(prevDateTime + change * 365 * 24 * 60 * 60 * 1000))
     }
 
     toggleDataPicker() {
@@ -68,7 +68,7 @@ export default class DataPicker extends React.Component {
                     <div>
                         <div className='width80'>
                             <div class='calendarContainer'>
-                                <Calendar onChange={this.modDateByCalendar} value={this.state.date}/>
+                                <Calendar onChange={this.modDateByCalendar} value={this.props.date}/>
 
                                 <div className='slightMargin'>
                                     <button onClick={() => this.toggleDataPicker()} className='red largerAndborderless'>Close</button>
@@ -87,7 +87,7 @@ export default class DataPicker extends React.Component {
                     <button className='fill flex' onClick={() => this.toggleDataPicker()}>
                         <button onClick={(e) => {e.stopPropagation(); this.modYear(false);}} className='arrowBtn'><h1>{'<<'}</h1></button>
                         <button onClick={(e) => {e.stopPropagation(); this.modDate(false);}} className='arrowBtn'><h1>{'<'}</h1></button>
-                        <h1>{`${this.state.date.getMonth() + 1}/${this.state.date.getDate()}/${this.state.date.getFullYear()}`}</h1>
+                        <h1>{`${this.props.date.getMonth() + 1}/${this.props.date.getDate()}/${this.props.date.getFullYear()}`}</h1>
                         <button onClick={(e) => {e.stopPropagation(); this.modDate(true);}} className='arrowBtn'><h1>{'>'}</h1></button>
                         <button onClick={(e) => {e.stopPropagation(); this.modYear(true);}} className='arrowBtn'><h1>{'>>'}</h1></button>
                     </button>

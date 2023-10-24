@@ -4,6 +4,8 @@ import DataPicker from './components/DataPicker.js'
 import 'leaflet/dist/leaflet.css'
 import './style/App.css';
 import axios from 'axios';
+import StationMarker from './components/StationMarker.js'
+import DataLoader from './classes/DataLoader.js'
 
 
 export default class App extends React.Component {
@@ -11,7 +13,8 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            dataManager: null,
+            date: new Date(),
+            dataLoader: new DataLoader(),
             agRegions: null,
             stations: null,
             selectedData: [],
@@ -21,8 +24,32 @@ export default class App extends React.Component {
     }
 
 
-    componentDidMount() {
-        this.loadAgRegions()
+    async componentDidMount() {
+        this.state.dataLoader.getAgRegions().then((data) => {
+            this.setState({ agRegions: data });
+        })
+        
+        this.state.dataLoader.getStations().then((data) => {
+            let stations = []
+
+
+            for(let i = 0; i < Object.keys(data.province).length; i++) {
+                stations.push({
+                    'province': data.province[i], 
+                    'latitude': data.latitude[i], 
+                    'longitude': data.longitude[i], 
+                    'elevation': data.elevation[i], 
+                    'first_year': data.first_year[i], 
+                    'last_year': data.last_year[i]
+                })
+            }
+
+            this.setState({ stations: stations });
+        })
+    }
+
+    setDate(newDate) {
+        this.setState({date: newDate})
     }
 
     modSelectedData(data, removing=false) {
@@ -42,23 +69,7 @@ export default class App extends React.Component {
             this.setState({aggType: newVal})
     }
 
-    async loadAgRegions() {
-        //try {
-
-        let response = await axios.get('http://localhost:4000/');
-        response = JSON.parse(response.data)
-        console.log(response.features)
-        this.setState({ agRegions: response.features }, () => {
-            // This callback is called after the state has been updated
-            console.log(this.state.agRegions);
-        });
-
-        //   } catch (error) {
-        //     console.error('An error occurred:', error);
-        //   }
-    }
-
-    loadPopUp = (feature, layer) => {
+    loadRegionPopUp = (feature, layer) => {
         layer.bindPopup('hi');
     };
 
@@ -66,9 +77,9 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <DataPicker modAggType={(newVal) => this.modAggType(newVal)} modSelectedData={(data, removing) => this.modSelectedData(data, removing)}/>
+                <DataPicker date={this.state.date} setDate={(date) => this.setDate(date)} aggType={this.state.aggType} modAggType={(newVal) => this.modAggType(newVal)} modSelectedData={(data, removing) => this.modSelectedData(data, removing)}/>
 
-                <MapContainer style={{ width: "100vw", height: "100vh" }} center={[55.3, -106.205]} zoom={6} scrollWheelZoom={true}>
+                <MapContainer style={{ width: "100vw", height: "100vh" }} center={[55.3, -106.205]} zoom={6} minZoom={5} scrollWheelZoom={true}>
                     <TileLayer url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png' />
 
                     {this.state.agRegions && (<GeoJSON data={this.state.agRegions} style={(feature) => ({
@@ -78,14 +89,12 @@ export default class App extends React.Component {
                         opacity: 1,
                         fillOpacity: 0.7,
                     })}
-                        onEachFeature={this.loadPopUp}
+                        onEachFeature={this.loadRegionPopUp}
                     />)}
 
-                    {/* <Marker position={[54.875, -106.205]}>
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker> */}
+                    {this.state.stations && this.state.stations.map((station, i) => { 
+                        return <StationMarker key={i} station={station} date={this.state.date}/>  
+                    })}
 
                 </MapContainer>
             </div>
