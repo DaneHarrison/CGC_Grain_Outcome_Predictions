@@ -6,10 +6,13 @@ import React from 'react'
 export default class DieseasePicker extends React.Component {
     constructor(props) {
         super(props);
+    }
 
-        // this.state = {
 
-        // }
+    handleCheckbox = (event, data) => {
+        let value = event.target.checked;
+        
+        this.props.modSelectedData(data, !value)
     }
 
 
@@ -18,7 +21,7 @@ export default class DieseasePicker extends React.Component {
             <div className='column'>
                 <h2>Disease:</h2>
                 <div>
-                    <input type="checkbox" id="ergotCheckbox"/>
+                    <input type="checkbox" id="ergotCheckbox" onChange={(e) => this.handleCheckbox(e, 'ergot')}/>
                     <label for="ergotCheckbox">Ergot</label>
                 </div>
             </div>

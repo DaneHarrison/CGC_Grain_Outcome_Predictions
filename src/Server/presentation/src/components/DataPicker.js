@@ -1,7 +1,6 @@
 import '../style/dataPicker.css'
 import Calendar from 'react-calendar'
 import React from 'react'
-
 import AggPicker from './AggPicker.js'
 import DieseasePicker from './DieseasePicker.js'
 import SourcePicker from './SourcePicker.js'
@@ -12,11 +11,12 @@ export default class DataPicker extends React.Component {
 
         this.state = {
             hidden: false,
-            date: new Date(),
-            aggType: 'MONTH',  //day week month
+            date: new Date()
         }
     }
 
+
+    modDateByCalendar = date => this.setState({date})
 
     modDate(increase) {
         let prevDateTime = this.state.date.getTime();
@@ -57,10 +57,10 @@ export default class DataPicker extends React.Component {
         this.setState({date: new Date(prevDateTime + change * 365 * 24 * 60 * 60 * 1000)});
     }
 
-    toggleDatePicker() {
+    toggleDataPicker() {
         this.setState((prevState) => ({ hidden: !prevState.hidden }));
     }
-    // ({ action, activeStartDate, value, view }) => alert('New view is: ', view)
+
     render() {
         return (
             <div className={`stickyHeader ${this.state.hidden ? null : 'smaller'}`}> 
@@ -68,23 +68,23 @@ export default class DataPicker extends React.Component {
                     <div>
                         <div className='width80'>
                             <div class='calendarContainer'>
-                                <Calendar />
+                                <Calendar onChange={this.modDateByCalendar} value={this.state.date}/>
 
                                 <div className='slightMargin'>
-                                    <button onClick={() => this.toggleDatePicker()} className='red largerAndborderless'>Close</button>
-                                    <button onClick={() => this.toggleDatePicker()} className='green largerAndborderless'>Submit</button>
+                                    <button onClick={() => this.toggleDataPicker()} className='red largerAndborderless'>Close</button>
+                                    <button onClick={() => this.toggleDataPicker()} className='green largerAndborderless'>Submit</button>
                                 </div>
                             </div>
                             
-                            <DieseasePicker/>
-                            <AggPicker/>
-                            <SourcePicker/>
+                            <DieseasePicker modSelectedData={(data, removing) => this.props.modSelectedData(data, removing)}/>
+                            <AggPicker modAggType={(newVal) => this.props.modAggType(newVal)}/>
+                            <SourcePicker modSelectedData={(data, removing) => this.props.modSelectedData(data, removing)}/>
                         </div>
                     </div>
 
                     :
 
-                    <button className='fill flex' onClick={() => this.toggleDatePicker()}>
+                    <button className='fill flex' onClick={() => this.toggleDataPicker()}>
                         <button onClick={(e) => {e.stopPropagation(); this.modYear(false);}} className='arrowBtn'><h1>{'<<'}</h1></button>
                         <button onClick={(e) => {e.stopPropagation(); this.modDate(false);}} className='arrowBtn'><h1>{'<'}</h1></button>
                         <h1>{`${this.state.date.getMonth() + 1}/${this.state.date.getDate()}/${this.state.date.getFullYear()}`}</h1>

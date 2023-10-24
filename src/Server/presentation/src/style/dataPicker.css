@@ -47,11 +47,11 @@
 .width80 {
     justify-content: center;
     display: flex;
-    gap: 10px;
+    gap: 17px;
 }
 
 .calendarContainer {
-    margin-top: 10px;
+    margin-top: 1px;
     width: 20vw;
     height: auto;
 }
@@ -101,3 +101,12 @@
     padding: 5px;
     width: 50px;
 }
+
+.react-calendar__tile--active {
+    background-color: blue;
+    color: white; /* Optionally, set text color to white for better visibility */
+  }
+
+  .react-calendar__tile {
+    border: none;
+  }

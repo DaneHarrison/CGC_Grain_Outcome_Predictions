@@ -6,27 +6,31 @@ import React from 'react'
 export default class AggPicker extends React.Component {
     constructor(props) {
         super(props);
-
-        // this.state = {
-
-        // }
     }
 
+    
+    handleRadioChange = (event, newAggVal) => {
+        let value = event.target.value;
+    
+        if(value)
+            this.props.modAggType(newAggVal)
+    };
+    
 
     render() {
         return (
             <div className='column'>
-                <h2>Aggregate by:</h2>
+                <h2>Aggregate:</h2>
                 <div>
-                    <input type="checkbox" id="dailyCheckbox"/>
+                    <input type="radio" id="dailyCheckbox" name="aggType" value="daily" onChange={(e) => this.handleRadioChange(e, 'DAY')}/>
                     <label for="dailyCheckbox">Daily</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="weeklyCheckbox"/>
+                    <input type="radio" id="weeklyCheckbox" name="aggType" value="weekly" onChange={(e) => this.handleRadioChange(e, 'WEEK')}/>
                     <label for="weeklyCheckbox">Weekly</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="monthlyCheckbox"/>
+                    <input type="radio" id="monthlyCheckbox" name="aggType" value="monthly" defaultChecked onChange={(e) => this.handleRadioChange(e, 'MONTH')}/>
                     <label for="monthlyCheckbox">Monthly</label>
                 </div>
             </div>

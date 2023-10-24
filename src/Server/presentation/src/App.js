@@ -11,20 +11,35 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            displayDataPicker: true,
             dataManager: null,
-            agRegions: null, // eventually this should be removed as well
-            // stationData: null,
-            // diseaseData: null,
+            agRegions: null,
+            stations: null,
             selectedData: [],
+            aggType: 'MONTH',
             data: {}
         }
-
-
     }
+
 
     componentDidMount() {
         this.loadAgRegions()
+    }
+
+    modSelectedData(data, removing=false) {
+        let selectedData = [...this.state.selectedData]
+        alert(removing)
+
+        if(removing)
+            selectedData = selectedData.filter((currData) => currData != data)
+        else 
+            selectedData.push(data)
+
+        this.setState({selectedData: selectedData})
+    }
+
+    modAggType(newVal) {
+        if(newVal == 'DAY' || newVal == 'WEEK' || newVal == 'MONTH')
+            this.setState({aggType: newVal})
     }
 
     async loadAgRegions() {
@@ -51,7 +66,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <DataPicker/>
+                <DataPicker modAggType={(newVal) => this.modAggType(newVal)} modSelectedData={(data, removing) => this.modSelectedData(data, removing)}/>
 
                 <MapContainer style={{ width: "100vw", height: "100vh" }} center={[55.3, -106.205]} zoom={6} scrollWheelZoom={true}>
                     <TileLayer url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png' />
