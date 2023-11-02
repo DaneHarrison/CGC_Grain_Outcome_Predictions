@@ -84,7 +84,7 @@ export default class App extends React.Component {
                         this.state.dataLoader.getData(disease)
                             .filter((sample) => this.state.date.getFullYear() == sample.year)
                             .map((sample, i) => (
-                                <SampleMarker key={i} sample={sample} date={this.state.date} diseaseName={disease}/>
+                                <SampleMarker key={i} dataLoader={this.state.dataLoader} sample={sample} date={this.state.date} diseaseName={disease}/>
                             )
                         )
                     ))}

@@ -10,6 +10,7 @@ export default class StationMarker extends React.Component {
         super(props);
 
         this.state = {
+            attributes: [], 
             icon: new L.Icon({
                 iconUrl: ergotIcon,
                 iconSize: [44, 44],
@@ -21,6 +22,7 @@ export default class StationMarker extends React.Component {
 
     componentDidMount() {
         this.chooseMarker(this.props.diseaseName)
+        this.setState({attributes: this.props.dataLoader.getMetaData(this.props.diseaseName).columnData})
     }
 
     chooseMarker(diseaseName) {
@@ -40,9 +42,9 @@ export default class StationMarker extends React.Component {
         return (
             <Marker position={[this.props.sample.y, this.props.sample.x]} icon={this.state.icon}>
                 <Popup open={this.loadSamplePopUp} closeButton={true}>
-                    {Object.keys(this.props.sample)
+                    {this.state.attributes
                         .map((attr) => (
-                            <h4>{attr + ': ' + this.props.sample[attr]}</h4>
+                            <h4>{attr.displayName + ': ' + this.props.sample[attr.name]}</h4>
                         )
                     )}
                 </Popup>
