@@ -15,13 +15,13 @@ conn = db.connect()
 
 regionQuery = sq.text("SELECT district, geometry, color FROM public.census_ag_regions WHERE pr_uid = 46 OR pr_uid = 47 OR pr_uid = 48")
 ag_regions = gpd.GeoDataFrame.from_postgis(regionQuery, conn, geom_col="geometry")
-#ag_regions = ag_regions.set_crs("EPSG:3347", allow_override=True)
-#ag_regions = ag_regions.to_crs(crs="EPSG:4326")
+ag_regions = ag_regions.set_crs("EPSG:3347", allow_override=True)
+ag_regions = ag_regions.to_crs(crs="EPSG:4326")
 
 stationQuery = sq.text('SELECT province, latitude, longitude, elevation, MIN(hly_first_year) AS first_year, MAX(hly_last_year) AS last_year FROM public.stations_hly WHERE district IS NOT NULL GROUP BY latitude, longitude, elevation, province;')
 stations = pd.read_sql_query(stationQuery, conn)
 
-ergotQuery = sq.text('SELECT * FROM public.ergot_sample_feat_eng;')
+ergotQuery = sq.text('SELECT * FROM public.ergot_sample_feat_eng WHERE incidence = True;')
 ergot = pd.read_sql_query(ergotQuery, conn)
 ergot['x'] = None
 ergot['y'] = None
@@ -65,7 +65,7 @@ class Init(Resource):
         if data == 'agRegions':
             response = ag_regions.to_json()
         elif data == 'stations':
-            response = stations.to_json()
+            response = stations.to_json(orient='records')
 
         return response
 
@@ -73,10 +73,14 @@ class Load(Resource):
     def get(self):
         src = request.args.get('src')
         attrs = request.args.get('attrs')
-        query = sq.text(f'''SELECT {attrs} FROM {src}''')
+        
+        if src != 'ergot_sample_feat_eng':
+            query = sq.text(f'''SELECT {attrs} FROM public.{src}''')
+            data = pd.read_sql_query(query, conn)
+        else:
+            data = ergot
 
-        data = pd.read_sql_query(query, conn)
-        data = data.to_json()
+        data = data.to_json(orient='records')
 
         return data
 

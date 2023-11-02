@@ -1,4 +1,4 @@
-import {Marker, Popup} from 'react-leaflet'
+import { Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'; // Import the 'leaflet' library
 import '../style/dataPicker.css'
 import React from 'react'
@@ -8,7 +8,6 @@ import stationIcon from '../assets/windmill.png'
 export default class StationMarker extends React.Component {
     constructor(props) {
         super(props);
-
 
         this.state = {
             stationIcon: new L.Icon({
@@ -20,28 +19,17 @@ export default class StationMarker extends React.Component {
     }
 
 
-    handleCheckbox = (event, data) => {
-        let value = event.target.checked;
-        
-        this.props.modSelectedData(data, !value)
-    }
-
-
     render() {
         return (
-            <div>
-                {this.props.date.getFullYear() <= this.props.station.last_year && this.props.date.getFullYear() >= this.props.station.first_year &&
-                    <Marker position={[this.props.station.latitude, this.props.station.longitude]} icon={this.state.stationIcon}> 
-                        <Popup open={this.loadStationPopUp} closeButton={true}>
-                            <h4>Province: {this.props.station.province}</h4>
-                            <h4>Elevation: {this.props.station.elevation}</h4>
-                            <h4>First Year: {this.props.station.first_year}</h4>
-                            <h4>Last Year: {this.props.station.last_year}</h4>
-                            <h4>Total Number of Years: {this.props.station.last_year - this.props.station.first_year}</h4>
-                        </Popup>
-                    </Marker>
-                }
-            </div>
+            <Marker position={[this.props.station.latitude, this.props.station.longitude]} icon={this.state.stationIcon}>
+                <Popup open={this.loadStationPopUp} closeButton={true}>
+                    <h4>Province: {this.props.station.province}</h4>
+                    <h4>Elevation: {this.props.station.elevation}</h4>
+                    <h4>First Year: {this.props.station.first_year}</h4>
+                    <h4>Last Year: {this.props.station.last_year}</h4>
+                    <h4>Total Number of Years: {this.props.station.last_year - this.props.station.first_year}</h4>
+                </Popup>
+            </Marker>
         )
     }
 }

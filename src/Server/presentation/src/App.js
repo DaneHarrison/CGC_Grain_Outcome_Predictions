@@ -4,6 +4,7 @@ import DataPicker from './components/DataPicker.js'
 import 'leaflet/dist/leaflet.css'
 import './style/App.css';
 import StationMarker from './components/StationMarker.js'
+import SampleMarker from './components/SampleMarker.js'
 import DataLoader from './classes/DataLoader.ts'
 
 
@@ -16,7 +17,7 @@ export default class App extends React.Component {
             date: new Date(),
 
             agRegions: null,
-            stations: null,
+            stations: [],
             diseases: [] 
         }
     }
@@ -73,9 +74,20 @@ export default class App extends React.Component {
                         onEachFeature={this.loadRegionPopUp}
                     />)}
 
-                    {this.state.stations && this.state.stations.map((station, i) => { 
-                        return <StationMarker key={i} station={station} date={this.state.date}/>  
-                    })}
+                    {this.state.stations.filter((station) => this.state.date.getFullYear() >= station.first_year && this.state.date.getFullYear() <= station.last_year)
+                        .map((station, i) => (
+                            <StationMarker key={i} station={station}/>
+                        )  
+                    )}
+
+                    {this.state.diseases.map((disease) => (
+                        this.state.dataLoader.getData(disease)
+                            .filter((sample) => this.state.date.getFullYear() == sample.year)
+                            .map((sample, i) => (
+                                <SampleMarker key={i} sample={sample} date={this.state.date} diseaseName={disease}/>
+                            )
+                        )
+                    ))}
 
                 </MapContainer>
             </div>

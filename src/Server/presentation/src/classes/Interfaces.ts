@@ -12,9 +12,9 @@ export interface ColumnData {
 }
 
 export interface Data {
-    'ergot': {},
-    'copernicus': {},
-    'soil': {},
-    'soilMoisture': {},
-    'weatherStations': {}
+    'ergot': [],
+    'copernicus': [],
+    'soil': [],
+    'soilMoisture': [],
+    'weatherStations': []
 }

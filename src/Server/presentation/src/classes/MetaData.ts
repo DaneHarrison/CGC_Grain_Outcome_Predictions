@@ -35,11 +35,11 @@ export default class MetaData {
         }
     }
 
-    dataToPull(forceReload=false) {
+    dataToPull() {
         let attrsToPull: string[] = []
 
         for(let attr of this._columns) {
-            if(attr.selected && (!attr.loaded || forceReload))
+            if(attr.selected && !attr.loaded)
                 attrsToPull.push(attr.name)
         } 
 

@@ -20,8 +20,6 @@ export default class DataPicker extends React.Component {
         if(requestData) {
             this.props.dataLoader.requestData()
         }
-
-        //if pulled a disease then update the disease list automatically
     }
 
     modYear(increase, numYears=1) {
@@ -44,7 +42,7 @@ export default class DataPicker extends React.Component {
                                 <button onClick={() => this.toggleDataPicker(true)} className='green largerAndborderless'>Submit</button>
                             </div>
 
-                            <DieseasePicker dataLoader={this.props.dataLoader}/>
+                            <DieseasePicker dataLoader={this.props.dataLoader} toggleDisease={(diseaseName) => this.props.toggleDisease(diseaseName)}/>
                             <AggPicker dataLoader={this.props.dataLoader}/>
                             <SourcePicker dataLoader={this.props.dataLoader}/>
                         </div>

@@ -8,7 +8,7 @@ const SERVER_PORT = 4000
 
 
 export default class DataLoader {
-    _weatherStations: {};
+    _weatherStations: {}[];
     _agRegions: {};
     _aggType: string;
     _data: Data;
@@ -25,11 +25,11 @@ export default class DataLoader {
         this._agRegions = null;
         this._aggType = aggType;
         this._data = {
-            'ergot': {},
-            'copernicus': {},
-            'soil': {},
-            'soilMoisture': {},
-            'weatherStations': {}
+            'ergot': [],
+            'copernicus': [],
+            'soil': [],
+            'soilMoisture': [],
+            'weatherStations': []
         }
 
         this._metaData = {
@@ -52,24 +52,11 @@ export default class DataLoader {
     }
 
     initWeatherStations() {
-        let stations = []
         let data;
 
         return axios.get(`${SERVER_ADDR}:${SERVER_PORT}/data/init/`, {params: {'src': 'stations'}}).then((response) => {
             data = JSON.parse(response.data)
-
-            for(let i = 0; i < Object.keys(data.province).length; i++) {
-                stations.push({
-                    'province': data.province[i], 
-                    'latitude': data.latitude[i], 
-                    'longitude': data.longitude[i], 
-                    'elevation': data.elevation[i], 
-                    'first_year': data.first_year[i], 
-                    'last_year': data.last_year[i]
-                })
-            }
-
-            this._weatherStations = stations
+            this._weatherStations = data
         });
     }
 
@@ -98,23 +85,34 @@ export default class DataLoader {
         return this._data[identifier]
     }
 
-    async requestData(forceReload: boolean = false) {
+    async requestData() {
         let dataToPull, data
 
         for(let src in this._metaData) {
-            dataToPull = this._metaData[src].dataToPull(forceReload)
+            dataToPull = this._metaData[src].dataToPull()
 
             if(dataToPull.length > 0)
                 axios.get(`${SERVER_ADDR}:${SERVER_PORT}/data/load/`, {params: {'src': this._metaData[src].tableData.name, 'attrs': dataToPull.join(',')}}).then((response) => {
                     data = JSON.parse(response.data)
-
-                    if(forceReload) 
-                        this._data[src] = data
-                    else 
-                        this._data[src] = { ...this._data[src], ...data }
-
+                    
+                    this._loadData(src, data, this._data[src].length == 0)
                     this._metaData[src].setLoaded(dataToPull)
                 })
+        }
+    }
+
+    _loadData(src, newdata, isEmpty) {
+        if(isEmpty) { 
+            this._data[src] = newdata
+        }
+        else  {
+            for(let i = 0; i < this._data[src].length; i++) {
+                this._data[src][i] = {...this._data[src][i], ...newdata[i]}
+            }
+        }
+
+        if(src=='ergot') {
+            console.log(this._data[src])
         }
     }
 }
