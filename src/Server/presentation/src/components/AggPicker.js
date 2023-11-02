@@ -1,5 +1,4 @@
 import '../style/dataPicker.css'
-import Calendar from 'react-calendar'
 import React from 'react'
 
 
@@ -13,7 +12,7 @@ export default class AggPicker extends React.Component {
         let value = event.target.value;
     
         if(value)
-            this.props.modAggType(newAggVal)
+            this.props.dataLoader.modAggType(newAggVal)
     };
     
 

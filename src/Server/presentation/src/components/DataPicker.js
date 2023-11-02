@@ -1,5 +1,4 @@
 import '../style/dataPicker.css'
-import Calendar from 'react-calendar'
 import React from 'react'
 import AggPicker from './AggPicker.js'
 import DieseasePicker from './DieseasePicker.js'
@@ -10,56 +9,29 @@ export default class DataPicker extends React.Component {
         super(props);
 
         this.state = {
-            hidden: false,
-            date: new Date()
+            hidden: false
         }
     }
 
 
-    modDateByCalendar = date => this.props.setDate(date)
-
-    modDate(increase) {
-        let prevDateTime = this.props.date.getTime();
-        let change = increase ? 1 : -1;
-        let nxtMonth, currYear, numDaysInMonth;
-
-        switch(this.props.aggType) {
-            case 'DAY':
-                this.props.setDate(new Date(prevDateTime + change * 24 * 60 * 60 * 1000))
-                break;
-
-            case 'WEEK':
-                this.props.setDate(new Date(prevDateTime + change * 7 * 24 * 60 * 60 * 1000))
-                break;
-
-            case 'MONTH':
-                nxtMonth = this.props.date.getMonth() + 1
-                currYear = this.props.date.getFullYear() - 1
-
-                if(nxtMonth > 11) {
-                    currYear += 1
-                    nxtMonth = nxtMonth % 11
-                }
-
-                // Gets the last day of the previous/current month (because we've already skipped ahead)
-                numDaysInMonth = new Date(currYear, nxtMonth, 0)
-                numDaysInMonth = numDaysInMonth.getDate()
-
-                this.props.setDate(new Date(prevDateTime + change * numDaysInMonth * 24 * 60 * 60 * 1000));
-                break;
-        }
-    }
-
-    modYear(increase) {
-        let prevDateTime = this.props.date.getTime();
-        let change = increase ? 1 : -1;
-
-        this.props.setDate(new Date(prevDateTime + change * 365 * 24 * 60 * 60 * 1000))
-    }
-
-    toggleDataPicker() {
+    toggleDataPicker(requestData=false) {
         this.setState((prevState) => ({ hidden: !prevState.hidden }));
+
+        if(requestData) {
+            this.props.dataLoader.requestData()
+        }
+
+        //if pulled a disease then update the disease list automatically
     }
+
+    modYear(increase, numYears=1) {
+        let prevTime = this.props.date.getTime()
+        let change = increase ? 1 : -1;
+        change = change * numYears;
+
+        this.props.setDate(new Date(prevTime + change * 365 * 24 * 60 * 60 * 1000))
+    }
+
 
     render() {
         return (
@@ -67,29 +39,25 @@ export default class DataPicker extends React.Component {
                 {this.state.hidden ?
                     <div>
                         <div className='width80'>
-                            <div class='calendarContainer'>
-                                <Calendar onChange={this.modDateByCalendar} value={this.props.date}/>
-
-                                <div className='slightMargin'>
-                                    <button onClick={() => this.toggleDataPicker()} className='red largerAndborderless'>Close</button>
-                                    <button onClick={() => this.toggleDataPicker()} className='green largerAndborderless'>Submit</button>
-                                </div>
+                            <div className='slightMargin'>
+                                <button onClick={() => this.toggleDataPicker()} className='red largerAndborderless'>Close</button>
+                                <button onClick={() => this.toggleDataPicker(true)} className='green largerAndborderless'>Submit</button>
                             </div>
-                            
-                            <DieseasePicker modSelectedData={(data, removing) => this.props.modSelectedData(data, removing)}/>
-                            <AggPicker modAggType={(newVal) => this.props.modAggType(newVal)}/>
-                            <SourcePicker modSelectedData={(data, removing) => this.props.modSelectedData(data, removing)}/>
+
+                            <DieseasePicker dataLoader={this.props.dataLoader}/>
+                            <AggPicker dataLoader={this.props.dataLoader}/>
+                            <SourcePicker dataLoader={this.props.dataLoader}/>
                         </div>
                     </div>
 
                     :
 
                     <button className='fill flex' onClick={() => this.toggleDataPicker()}>
-                        <button onClick={(e) => {e.stopPropagation(); this.modYear(false);}} className='arrowBtn'><h1>{'<<'}</h1></button>
-                        <button onClick={(e) => {e.stopPropagation(); this.modDate(false);}} className='arrowBtn'><h1>{'<'}</h1></button>
-                        <h1>{`${this.props.date.getMonth() + 1}/${this.props.date.getDate()}/${this.props.date.getFullYear()}`}</h1>
-                        <button onClick={(e) => {e.stopPropagation(); this.modDate(true);}} className='arrowBtn'><h1>{'>'}</h1></button>
-                        <button onClick={(e) => {e.stopPropagation(); this.modYear(true);}} className='arrowBtn'><h1>{'>>'}</h1></button>
+                        <button onClick={(e) => {e.stopPropagation(); this.modYear(false, 5);}} className='arrowBtn'><h1>{'<<'}</h1></button>
+                        <button onClick={(e) => {e.stopPropagation(); this.modYear(false);}} className='arrowBtn'><h1>{'<'}</h1></button>
+                        <h1>{this.props.date.getFullYear()}</h1>
+                        <button onClick={(e) => {e.stopPropagation(); this.modYear(true);}} className='arrowBtn'><h1>{'>'}</h1></button>
+                        <button onClick={(e) => {e.stopPropagation(); this.modYear(true, 5);}} className='arrowBtn'><h1>{'>>'}</h1></button>
                     </button>
                 }
             </div>

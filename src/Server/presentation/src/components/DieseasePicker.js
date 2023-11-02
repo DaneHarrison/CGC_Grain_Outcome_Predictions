@@ -1,18 +1,15 @@
 import '../style/dataPicker.css'
-import Calendar from 'react-calendar'
 import React from 'react'
 
 
 export default class DieseasePicker extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-
-    handleCheckbox = (event, data) => {
+    handleCheckbox = (event, identifier) => {
         let value = event.target.checked;
-        
-        this.props.modSelectedData(data, !value)
+        let dieseaseData = this.props.dataLoader.getMetaData(identifier)
+
+        for(let column of dieseaseData.columnData) {
+            column.selected = value
+        }
     }
 
 

@@ -3,9 +3,8 @@ import { MapContainer, TileLayer, useMap, Marker, Popup, L, GeoJSON } from 'reac
 import DataPicker from './components/DataPicker.js'
 import 'leaflet/dist/leaflet.css'
 import './style/App.css';
-import axios from 'axios';
 import StationMarker from './components/StationMarker.js'
-import DataLoader from './classes/DataLoader.js'
+import DataLoader from './classes/DataLoader.ts'
 
 
 export default class App extends React.Component {
@@ -13,38 +12,25 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            date: new Date(),
             dataLoader: new DataLoader(),
+            date: new Date(),
+
             agRegions: null,
             stations: null,
-            selectedData: [],
-            aggType: 'MONTH',
-            data: {}
+            diseases: [] 
         }
     }
 
 
     async componentDidMount() {
-        this.state.dataLoader.getAgRegions().then((data) => {
-            this.setState({ agRegions: data });
-        })
+        let promises = []
         
-        this.state.dataLoader.getStations().then((data) => {
-            let stations = []
+        promises.push(this.state.dataLoader.initAgRegions())
+        promises.push(this.state.dataLoader.initWeatherStations())
 
-
-            for(let i = 0; i < Object.keys(data.province).length; i++) {
-                stations.push({
-                    'province': data.province[i], 
-                    'latitude': data.latitude[i], 
-                    'longitude': data.longitude[i], 
-                    'elevation': data.elevation[i], 
-                    'first_year': data.first_year[i], 
-                    'last_year': data.last_year[i]
-                })
-            }
-
-            this.setState({ stations: stations });
+        Promise.all(promises).then(() => {
+            this.setState({agRegions: this.state.dataLoader.agRegions})
+            this.setState({stations: this.state.dataLoader.weatherStations})
         })
     }
 
@@ -52,21 +38,16 @@ export default class App extends React.Component {
         this.setState({date: newDate})
     }
 
-    modSelectedData(data, removing=false) {
-        let selectedData = [...this.state.selectedData]
-        alert(removing)
+    toggleDisease(diseaseName) {
+        let currDiseases = this.state.diseases
+        let index = currDiseases.indexOf(diseaseName)
 
-        if(removing)
-            selectedData = selectedData.filter((currData) => currData != data)
-        else 
-            selectedData.push(data)
+        if(index == -1)
+            currDiseases.push(diseaseName)
+        else
+            currDiseases.splice(index, 1);
 
-        this.setState({selectedData: selectedData})
-    }
-
-    modAggType(newVal) {
-        if(newVal == 'DAY' || newVal == 'WEEK' || newVal == 'MONTH')
-            this.setState({aggType: newVal})
+        this.setState({diseases: currDiseases})
     }
 
     loadRegionPopUp = (feature, layer) => {
@@ -77,7 +58,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <DataPicker date={this.state.date} setDate={(date) => this.setDate(date)} aggType={this.state.aggType} modAggType={(newVal) => this.modAggType(newVal)} modSelectedData={(data, removing) => this.modSelectedData(data, removing)}/>
+                <DataPicker date={this.state.date} setDate={(date) => this.setDate(date)} dataLoader={this.state.dataLoader} toggleDisease={(diseaseName) => this.toggleDisease(diseaseName)}/>
 
                 <MapContainer style={{ width: "100vw", height: "100vh" }} center={[55.3, -106.205]} zoom={6} minZoom={5} scrollWheelZoom={true}>
                     <TileLayer url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png' />
