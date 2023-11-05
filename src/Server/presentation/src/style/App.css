@@ -25,3 +25,13 @@ h2, h4 {
 label {
   font-size: 12px;
 }
+
+.mapModelAlternator {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 110px;
+  height: 110px;
+  z-index: 100000;
+  font-size: medium;
+}

@@ -9,6 +9,7 @@ import numpy as np
 from shapely.geometry import Point, Polygon
 sys.path.append(os.getcwd())
 
+from Server.logic.modelLoader import getForestModels
 from Shared.DataService import DataService
 db = DataService()
 conn = db.connect()
@@ -25,6 +26,18 @@ ergotQuery = sq.text('SELECT * FROM public.ergot_sample_feat_eng WHERE incidence
 ergot = pd.read_sql_query(ergotQuery, conn)
 ergot['x'] = None
 ergot['y'] = None
+
+models = getForestModels()
+loadedModels = []
+
+for models in models:
+    loadedModels.append({
+        'type':  model['type'],
+        'name': model['name'],
+        'factors': model['factors'],
+        'predictor': model['predictor'],
+        'statistics': model['statistics']
+    })
 
 app = Flask(__name__, template_folder='../presentation/build/', static_folder='../presentation/build/static/')
 app.config['UPLOAD_FOLDER'] = './'
@@ -84,8 +97,28 @@ class Load(Resource):
 
         return data
 
+class GetModels(Resource):
+    def get(self):
+        return json.dumps(loadedModels)
+
+class Predict(Resource):
+    def post(self):
+        data = request.get_json()
+        modelName = data.get('modelName')
+        predictionInput = data.get('predictionInput')
+        predictionInput = pd.DataFrame(predictionInput)
+        predictionOutput = None
+
+        for model in loadedModels:
+            if model['name'] == modelName:
+                predictionOutput = model['model'].predict(predictionInput)
+                break
+
+        return json.dumps(predictionOutput)
 
 #api.add_resource(Index, '/')
 api.add_resource(Init, '/data/init/')
 api.add_resource(Load, '/data/load/')
+api.add_resource(GetModels, '/models/load/')
+api.add_resource(Predict, '/models/predict/')
 app.run(host=HOST, port=PORT, debug=True)

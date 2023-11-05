@@ -6,6 +6,7 @@ import './style/App.css';
 import StationMarker from './components/StationMarker.js'
 import SampleMarker from './components/SampleMarker.js'
 import DataLoader from './classes/DataLoader.ts'
+import ModelOverlay from './components/ModelOverlay.js';
 
 
 export default class App extends React.Component {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
         this.state = {
             dataLoader: new DataLoader(),
             date: new Date(),
+            showingModels: false,
 
             agRegions: null,
             stations: [],
@@ -39,6 +41,11 @@ export default class App extends React.Component {
         this.setState({date: newDate})
     }
 
+    toggleOverlay() {
+        let prevState = this.state.showingModels
+        this.setState({showingModels: !prevState})
+    }
+
     toggleDisease(diseaseName) {
         let currDiseases = this.state.diseases
         let index = currDiseases.indexOf(diseaseName)
@@ -52,14 +59,16 @@ export default class App extends React.Component {
     }
 
     loadRegionPopUp = (feature, layer) => {
-        layer.bindPopup('hi');
+        layer.bindPopup('Data Visualization coming soon');
     };
-
 
     render() {
         return (
             <div className="App">
                 <DataPicker date={this.state.date} setDate={(date) => this.setDate(date)} dataLoader={this.state.dataLoader} toggleDisease={(diseaseName) => this.toggleDisease(diseaseName)}/>
+                <button class='mapModelAlternator' onClick={() => this.toggleOverlay()}>{this.state.showingModels ? 'Visualization' : 'Models'}</button>
+
+                {this.state.showingModels && <ModelOverlay/>}
 
                 <MapContainer style={{ width: "100vw", height: "100vh" }} center={[55.3, -106.205]} zoom={6} minZoom={5} scrollWheelZoom={true}>
                     <TileLayer url='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png' />
@@ -74,7 +83,8 @@ export default class App extends React.Component {
                         onEachFeature={this.loadRegionPopUp}
                     />)}
 
-                    {this.state.stations.filter((station) => this.state.date.getFullYear() >= station.first_year && this.state.date.getFullYear() <= station.last_year)
+                    {this.state.stations
+                        .filter((station) => this.state.date.getFullYear() >= station.first_year && this.state.date.getFullYear() <= station.last_year)
                         .map((station, i) => (
                             <StationMarker key={i} station={station}/>
                         )  
@@ -88,7 +98,6 @@ export default class App extends React.Component {
                             )
                         )
                     ))}
-
                 </MapContainer>
             </div>
         );

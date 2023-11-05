@@ -18,12 +18,6 @@ import os
 
 
 class DecisionTreeVisualizer:
-    def __init__(self, max_depth: Union[int, None] = None, random_state: int = 0):
-        self.tree = None
-
-        # by default setup to visualize classification
-        self.setupClassifierTree(max_depth, random_state)
-
     def setupClassifierTree(
         self, max_depth: Union[int, None] = None, random_state: int = 0
     ):
@@ -55,8 +49,6 @@ class DecisionTreeVisualizer:
         predictors = input[predictorCol]
 
         try:
-            os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
             if not self.tree:
                 raise ValueError("[ERROR] please setup a tree")
 
