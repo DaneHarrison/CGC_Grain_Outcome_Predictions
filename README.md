@@ -32,6 +32,7 @@ Other Images can be found [here](https://github.com/DaneHarrison/CGC_Grain_Outco
         - [Setting up credentials](#setting-up-credentials)
         - [Commands](#commands)
         - [Accessing the system with VSCode](#accessing-the-system-with-vscode)
+- [User Interface Demo](#user-interface-demo)
 - [Creating a model](#creating-a-model)
 - [Data Sources](#data-sources)
 - [Database Tables](#database-tables)
@@ -232,6 +233,15 @@ These can later be verified by running
 6. Click attach to a running container
 7. Select the desired container and follow prompts
 8. Default location is root access .. and then select data folder
+
+[back to top](#overview)
+<br>
+<hr>
+<br>
+
+## User Interface Demo
+
+[![Watch the video](.github/img/UI.PNG)](https://www.youtube.com/watch?v=oudslRyjzoE)
 
 [back to top](#overview)
 <br>
