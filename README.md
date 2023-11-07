@@ -13,7 +13,7 @@
 Other Images can be found [here](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject/.github/img) 
 <br>
 
-<img src='.github/img/UI.png' width="800"/>
+<img src='.github/img/UI.PNG' width="800"/>
 </div>
 </div>
 
