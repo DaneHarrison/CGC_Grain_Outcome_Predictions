@@ -9,7 +9,11 @@
 <br>
 <br>
 <div align="right">
-<img src='.github/img/districtsAndLabels.png' width="500"/>
+
+Other Images can be found [here](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/tree/industrialProject/.github/img) 
+<br>
+
+<img src='.github/img/UI.png' width="800"/>
 </div>
 </div>
 
@@ -20,6 +24,7 @@
     - [Setting up on Linux](#setting-up-on-linux)
     - [Containers](#containers)
         - [PGAdmin](#pgadmin)
+        - [Web Application](#web-application)
         - [PostgreSQL](#postgresql)
         - [pgsync](#pgsync)
         - [Tensorflow](#tensorflow)
@@ -112,9 +117,11 @@ Our current environment uses docker compose to launch containers housing [PGADMI
 
 3. Create a .env file which satisfies the requirements of [.env.template](src/docker/.env.template). **Ensure this .env file can be found inside of the src/docker directory**
 
-4. Run ```setup.bat``` located in the root folder of the project directory. This launches 3 different containers: postgres, pgadmin, and tensorflow-cpu
+4. Build the frontend by first navigating to ```src/Server/presentation``` and running ```npm run build```
 
-5. Refresh the webpages that appear to respectively load pgadmin and Jupyter labs. Jupyter labs requires a token for entry.
+5. Run ```setup.bat``` located in the root folder of the project directory. This launches 3 different containers: postgres, pgadmin, tensorflow-cpu and the web application
+
+6. Refresh the webpages that appear to respectively load pgadmin, Jupyter labs and the web application. Jupyter labs requires a token for entry
 
 [back to top](#overview)
 <br>
@@ -142,6 +149,14 @@ Our current environment uses docker compose to launch containers housing [PGADMI
 - PGADMIN (optional) is a web-based interface for managing PostgreSQL databases. It is used to manage the database and can be accessed at http://localhost:5433. The default credentials are:
     - Email: xxxxxxxx
     - Password: xxxx
+
+#### Web Application
+- Using Flask, React and Leaflet, the web application can be used to visualize data, track dieseases, run predictions against models and help explain their outcomes. Please note the following:
+    - Due to the time it takes to launch models only a few are enabled by default (this can easily be changed in the modelLoader import found [here](https://github.com/DaneHarrison/CGC_Grain_Outcome_Predictions/blob/industrialProject/src/Server/logic/modelLoader.py))
+    - Sometimes the server launches before the database is completly initialized in which cases a simple restart will fix the issue
+    - When making changes to the frontend, to connect the development server to the flask instance a cors module can be used by including the following lines to server.py 
+        1. ```from flask_cors import CORS```
+        2. ```CORS(app)```
 
 #### PostgreSQL
 - PostgreSQL is a relational database management system. It is used to store the data and can be accessed at http://localhost:5432. The default credentials are:

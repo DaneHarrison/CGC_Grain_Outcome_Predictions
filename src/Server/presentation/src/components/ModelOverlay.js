@@ -109,16 +109,15 @@ export default class ModelOverlay extends React.Component {
 
 
   predict = () => {
-    alert('working')
-    let modelName, predictionInput
+    let modelName, predictionInput, currVal
     
     if(this.state.selectedModel) {
         modelName = this.state.selectedModel.name
         predictionInput = {}
 
         for(let attr of this.state.selectedModel.factors) {
-            let hji = document.getElementById(attr).value
-            predictionInput[attr] = 5
+            currVal = parseFloat(document.getElementById(attr).value)
+            predictionInput[attr] = isNaN(currVal) ? 0 : currVal
         }
 
         this.state.modelLoader.predict(modelName, predictionInput).then((results) => {
@@ -149,12 +148,14 @@ export default class ModelOverlay extends React.Component {
 
             <h2 class="giveSpace">Factors:</h2>
             <div class="listOfFactors">
-              {this.state.selectedModel && this.state.selectedModel.factors.map((factor) => (
-                <div class='factors'>
-                  <label for={factor}>{`${factor} `}</label>
-                  <input type="text" id={factor} />
-                </div>
-              ))}
+              {this.state.selectedModel && this.state.selectedModel.factors
+                .map((factor) => (
+                  <div class='factors'>
+                    <label for={factor}>{`${factor} `}</label>
+                    <input type="text" id={factor} />
+                  </div>
+                )
+              )}
             </div>
 
             <button onClick={this.predict} class="btn">Predict</button>
