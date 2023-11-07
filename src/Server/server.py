@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, Response, abort
 from flask_restful import Resource, Api
-import json, base64, sys, os
+import sys, os
 from flask_cors import CORS
 import sqlalchemy as sq
 import geopandas as gpd
@@ -28,15 +28,25 @@ ergot['x'] = None
 ergot['y'] = None
 
 models = getForestModels()
-loadedModels = []
+loadedModelInfo = []
 
-for models in models:
-    loadedModels.append({
+for model in models:
+    modelStatistics = {
+        "accuracy": str(model['statistics']["accuracy"]),
+        "loss": str(model['statistics']["loss"]),
+        "precision": str(model['statistics']["precision"]),
+        "recall": str(model['statistics']["recall"]),
+        "f1": str(model['statistics']["f1"]),
+        "auc": str(model['statistics']["auc"]),
+        "importances": [f'{factor[1]}: {factor[0]}' for factor in model['statistics']["importances"]]
+    } 
+
+    loadedModelInfo.append({
         'type':  model['type'],
         'name': model['name'],
-        'factors': model['factors'],
+        'factors': [f'{factor}' for factor in model['factors']],
         'predictor': model['predictor'],
-        'statistics': model['statistics']
+        'statistics': modelStatistics
     })
 
 app = Flask(__name__, template_folder='../presentation/build/', static_folder='../presentation/build/static/')
@@ -63,8 +73,6 @@ for row in districtCount.itertuples():
     x, y = genRandomPointsInGeom(geometry['geometry'], row.count)
     ergot.loc[ergot['district'] == row.district, ['x']] = x
     ergot.loc[ergot['district'] == row.district, ['y']] = y
-
-print(ergot)
 
 # class Index(Resource):
 #     def get(self,):
@@ -99,22 +107,24 @@ class Load(Resource):
 
 class GetModels(Resource):
     def get(self):
-        return json.dumps(loadedModels)
+        return jsonify(loadedModelInfo)
+
 
 class Predict(Resource):
     def post(self):
         data = request.get_json()
         modelName = data.get('modelName')
         predictionInput = data.get('predictionInput')
-        predictionInput = pd.DataFrame(predictionInput)
+        predictionInput = pd.DataFrame([predictionInput])
         predictionOutput = None
 
-        for model in loadedModels:
+        for model in models:
             if model['name'] == modelName:
                 predictionOutput = model['model'].predict(predictionInput)
+                predictionOutput = predictionOutput[0]
                 break
 
-        return json.dumps(predictionOutput)
+        return jsonify({'output': bool(predictionOutput)})
 
 #api.add_resource(Index, '/')
 api.add_resource(Init, '/data/init/')
