@@ -1,10 +1,10 @@
-from sklearn.model_selection import cross_val_score  # type: ignore
 from sklearn.metrics import precision_score  # type: ignore
+from sklearn.metrics import accuracy_score  # type: ignore
+from sklearn.metrics import roc_auc_score  # type: ignore
 from sklearn.metrics import recall_score  # type: ignore
-from sklearn.metrics import f1_score  # type: ignore
 from sklearn.metrics import roc_curve  # type: ignore
+from sklearn.metrics import f1_score  # type: ignore
 from sklearn.metrics import log_loss  # type: ignore
-from sklearn.metrics import auc  # type: ignore
 from collections import Counter
 from typing import Dict
 import numpy as np
@@ -15,47 +15,34 @@ class ModelEvaluator:
     def evaluateClassification(
         self,
         model,
-        desc,
-        xTrainSet,
         yTrainSet,
-        xTestSet,
-        yTestSet,
+        yTrue,
+        desc=None,
         saveFactorsLoc=None,
-        hasFeatImportance=True,
-        numCV=5,
+        hasFeatImportance=True
     ) -> dict:
-        y_train_pred = model.predict(xTrainSet)
-        y_pred = model.predict(xTestSet)
+        yPred = model.predict(yTrainSet)
         results = {}
 
-        results["desc"] = desc
-
-        calc_accuracies = cross_val_score(
-            model, xTestSet, yTestSet, cv=numCV, scoring="neg_mean_squared_error"
-        )
-        results["avg_accuracy"] = np.average(calc_accuracies)
-
-        results["r2"] = model.score(xTestSet, yTestSet)
-        results["loss"] = log_loss(yTestSet, y_pred)
-
-        results["precision"] = precision_score(yTrainSet, y_train_pred)
-        results["recall"] = recall_score(yTrainSet, y_train_pred)
-        results["f1"] = f1_score(yTestSet, y_pred)
-
-        fpr, tpr, t = roc_curve(yTestSet, y_pred)
-        results["auc"] = auc(fpr, tpr)
+        results["accuracy"] = accuracy_score(yTrue, yPred)
+        results["loss"] = log_loss(yTrue, yPred)
+        results["precision"] = precision_score(yTrue, yPred)
+        results["recall"] = recall_score(yTrue, yPred)
+        results["f1"] = f1_score(yTrue, yPred)
+        results["auc"] = roc_auc_score(yTrue, yPred)
 
         if hasFeatImportance:
+            print('feature importance')
             results["importances"] = list(
-                zip(model.feature_importances_, xTestSet.columns)
+                zip(model.feature_importances_, yTrainSet.columns)
             )
             results["importances"].sort(reverse=True)
+            results["importances"] = results["importances"][:10]
 
             self.__saveRelevantFeatures(results["importances"], saveFactorsLoc)
 
-        print(f"[SUCCESS] evaluated {desc}")
-        print(f'\tavg_accuracy = {results["avg_accuracy"]}')
-        print(f'\tr2 = {results["r2"]}')
+        #print(f"[SUCCESS] evaluated {desc}")
+        print(f'\taccuracy = {results["accuracy"]}')
         print(f'\tloss = {results["loss"]}')
         print(f'\tprecision = {results["precision"]}')
         print(f'\trecall = {results["recall"]}')
@@ -67,6 +54,8 @@ class ModelEvaluator:
 
             for i in range(10):
                 print(f'\t\t{i}{results["importances"][i]}')
+        else:
+            results["importances"] = ['This model type does not support feature importance']
 
         print()
 
@@ -100,18 +89,19 @@ class ModelEvaluator:
                 zip(model.feature_importances_, xTestSet.columns)
             )
             results["importances"].sort(reverse=True)
+            results["importances"] = results["importances"][:10]
 
-            self.__saveRelevantFeatures(results["importances"], saveFactorsLoc)
+            # self.__saveRelevantFeatures(results["importances"], saveFactorsLoc)
 
         print(f"[SUCCESS] evaluated {desc}")
         print(f'\tavg_accuracy = {results["avg_accuracy"]}')
         print(f'\tr2 = {results["r2"]}')
 
         if hasFeatImportance:
-            print(f"\tthe top 10 most relevant attributes were:")
+            print(f"\tThe top 10 most relevant attributes were:")
 
             for i in range(10):
-                print(f'\t\t{i}{results["importances"][i]}')
+                print(f'\t\t{i}: {results["importances"][i]}')
 
         print()
 

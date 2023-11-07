@@ -24,7 +24,7 @@ class DataService:
         addr: str = "localhost",
         port: int = 5432,
         user: str = "postgres",
-        pw: str = "password",
+        pw: str = "postgres",
     ):
         self.dbURL: str = f"postgresql://{user}:{pw}@{addr}:{port}/{db}"
         self.engine: sq.engine.base.Engine = sq.create_engine(self.dbURL)

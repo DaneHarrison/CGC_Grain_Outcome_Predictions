@@ -167,4 +167,5 @@ _*/
 .pgsync.yml
 .vscode/*
 
-
+**/node_modules
+**/build

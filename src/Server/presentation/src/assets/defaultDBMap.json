@@ -1,0 +1,449 @@
+{
+    "ergot": {
+        "table": {
+            "name": "ergot_sample_feat_eng",
+            "displayName": "Ergot",
+            "dieseaseData": true
+        },
+        "columns": [
+            {
+                "name": "year",
+                "displayName": "Year",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "province",
+                "displayName": "Province",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "incidence",
+                "displayName": "Incidence",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "severity",
+                "displayName": "Severity",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "district",
+                "displayName": "District",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "downgrade",
+                "displayName": "Downgrade (0.4%)",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "severity_bin_quan",
+                "displayName": "Severity binning on quantiles",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "severity_bin_arb",
+                "displayName": "Severity binning (0.2, 0.4 and 0.8)",
+                "selected": false,
+                "loaded": false
+            }
+        ]
+    },
+    "copernicus": {
+        "table": {
+            "name": "agg_day_copernicus_satellite_data",
+            "displayName": "Copernicus",
+            "dieseaseData": false
+        },
+        "columns": [
+            {
+                "name": "year",
+                "displayName": "year",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "month",
+                "displayName": "month",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "day",
+                "displayName": "day",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "district",
+                "displayName": "district",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "mean_dewpoint_temperature",
+                "displayName": "Dewpoint Temperature",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_temperature",
+                "displayName": "Temperature",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_evaporation_from_bare_soil",
+                "displayName": "Evaporation from Soil",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_skin_reservoir_content",
+                "displayName": "Skin Reservoir Content",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_skin_temperature",
+                "displayName": "Skin Temperature",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_snowmelt",
+                "displayName": "Snowmelt",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_soil_temperature_level_1",
+                "displayName": "Soil Temperature Lvl 1",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_soil_temperature_level_2",
+                "displayName": "Soil Temperature Lvl 2",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_soil_temperature_level_3",
+                "displayName": "Soil Temperature Lvl 3",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_soil_temperature_level_4",
+                "displayName": "Soil Temperature Lvl 4",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_surface_net_solar_radiation",
+                "displayName": "Net Solar Radiation",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_surface_pressure",
+                "displayName": "Surface Pressure",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_volumetric_soil_water_layer_1",
+                "displayName": "Soil Water Lvl 1",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_volumetric_soil_water_layer_2",
+                "displayName": "Soil Water Lvl 2",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_volumetric_soil_water_layer_3",
+                "displayName": "Soil Water Lvl 3",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_volumetric_soil_water_layer_4",
+                "displayName": "Soil Water Lvl 4",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_leaf_area_index_high_vegetation",
+                "displayName": "Index High Vegetation",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_leaf_area_index_low_vegetation",
+                "displayName": "Index Low Vegetation",
+                "selected": false,
+                "loaded": false
+            }
+        ]
+    },
+    "soil": {
+        "table": {
+            "name": "agg_soil_data",
+            "displayName": "Soil",
+            "dieseaseData": false
+        },
+        "columns": [
+            {
+                "name": "district",
+                "displayName": "district",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "avg_percnt_coarse_frag",
+                "displayName": "Coarse Frag",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_total_sand",
+                "displayName": "Sand",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_total_silt",
+                "displayName": "Silt",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_total_clay",
+                "displayName": "Clay",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_percnt_carbon",
+                "displayName": "Carbon",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_calcium_ph",
+                "displayName": "Calcium PH",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_proj_ph",
+                "displayName": "Proj PH",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_reten_0",
+                "displayName": "Water Retention 0",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_reten_10",
+                "displayName": "Water Retention 10",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_reten_33",
+                "displayName": "Water Retention 33",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_reten_1500",
+                "displayName": "Water Retention 1500",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_bulk_density",
+                "displayName": "Bulk Density",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_elec_cond",
+                "displayName": "Electric Conductivity",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_percnt_wood",
+                "displayName": "Wood",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_holding_cap",
+                "displayName": "Water Holding Cap",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_land_area",
+                "displayName": "Land Area",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "avg_water_area",
+                "displayName": "Water Area",
+                "selected": false,
+                "loaded": false
+            }
+        ]
+    },
+    "soilMoisture": {
+        "table": {
+            "name": "agg_soil_moisture",
+            "displayName": "Soil Moisture",
+            "dieseaseData": false
+        },
+        "columns": [
+            {
+                "name": "year",
+                "displayName": "year",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "month",
+                "displayName": "month",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "day",
+                "displayName": "day",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "district",
+                "displayName": "district",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "soil_moisture_mean",
+                "displayName": "Soil Moisture",
+                "selected": false,
+                "loaded": false
+            }
+        ]
+    },
+    "weatherStations": {
+        "table": {
+            "name": "agg_weather_combined",
+            "displayName": "Weather Stations",
+            "dieseaseData": false
+        },
+        "columns": [
+            {
+                "name": "district",
+                "displayName": "district",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "year",
+                "displayName": "year",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "month",
+                "displayName": "month",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "day",
+                "displayName": "day",
+                "selected": true,
+                "loaded": false
+            },
+            {
+                "name": "mean_temp_x",
+                "displayName": "Temperature",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_dew_point_temp",
+                "displayName": "Dewpoint Temperature",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_humidex",
+                "displayName": "Humidex",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_precip",
+                "displayName": "Precipitation",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_rel_humid",
+                "displayName": "Relative Humidity",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_stn_press",
+                "displayName": "Station Pressure",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_visibility",
+                "displayName": "Visibility",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_total_rain",
+                "displayName": "Total Rain",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_total_snow",
+                "displayName": "Total Snow",
+                "selected": false,
+                "loaded": false
+            },
+            {
+                "name": "mean_snow_on_grnd",
+                "displayName": "Snow on Ground",
+                "selected": false,
+                "loaded": false
+            }
+        ]
+    }
+}

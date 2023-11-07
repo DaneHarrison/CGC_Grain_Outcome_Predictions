@@ -1,0 +1,124 @@
+.coverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    background-color: rgba(144, 238, 144, 0.8);
+    
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 39% 60%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+                "input results";
+}
+
+.input {
+    grid-area: input;
+    margin-left: 1%;
+}
+
+.results {
+    grid-area: results;
+    margin-left: 1%;
+    text-align: left;
+}
+
+.modelSelector {
+    height: 20%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+}
+
+.hideScrollers {
+    scrollbar-width: none;
+}
+
+.hideScrollers::-webkit-scrollbar {
+    width: 0; 
+    background: transparent; 
+}
+
+.hideScrollers::-webkit-scrollbar-thumb {
+    background: transparent; 
+}
+
+.listOfFactors {
+    height: 70%;
+    width: 100%;
+    overflow-y: scroll;
+    text-align: left;
+    font-size: large;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    margin-top: 1%;
+    height: 50%;
+    width: 100%;
+}
+
+.fitImg {
+    height: 100%;
+    width: 100%;
+    border: 1px black solid;
+}
+
+.predictionResults {
+    height: 5%;
+    width: 100%;
+}
+
+.characteristics {
+    overflow-y: scroll;
+    height: 45%;
+    width: 100%;
+}
+
+.btn {
+    margin-top: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: lightgray;
+}
+
+.toggleModelBtn {
+    height: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: lightgray;
+}
+
+.giveSpace {
+    margin-right: 10px;
+}
+
+.chosenModel {
+    background-color: yellow;
+    font-weight: bolder;
+}
+
+.rmMargins {
+    margin: 0;
+}
+
+.features {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: small;
+
+    justify-content: space-between;
+}
