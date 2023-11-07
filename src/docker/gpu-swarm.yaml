@@ -52,5 +52,11 @@ services:
       dockerfile: ./docker/server/Dockerfile
     depends_on:
       - postgres
+    environment:
+      - PG_USER==${POSTGRES_USER}
+      - PG_PW==${POSTGRES_PW}
+      - PG_DB==${POSTGRES_DB}
+      - PG_PORT==${POSTGRES_PORT}
+      - WEB_PG_ADDR==${WEB_UI_POSTGRES_ADDR}
     ports:
       - '4000:4000'  

@@ -12,7 +12,7 @@ from Server.logic.modelLoader import getForestModels
 from Shared.DataService import DataService
 
 
-db = DataService()
+db = DataService(os.environ.get('PG_DB'), os.environ.get('WEB_PG_ADDR'), os.environ.get('PG_PORT'), os.environ.get('PG_USER'), os.environ.get('PG_PW'))
 conn = db.connect()
 
 # Preload agriculture regions, weather stations and ergot 
@@ -138,4 +138,4 @@ api.add_resource(Init, '/data/init/')
 api.add_resource(Load, '/data/load/')
 api.add_resource(GetModels, '/models/load/')
 api.add_resource(Predict, '/models/predict/')
-app.run(host=HOST, port=PORT, debug=True)
+app.run(host=HOST, port=PORT, debug=False, use_reloader=False)

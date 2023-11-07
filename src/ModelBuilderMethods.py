@@ -6,22 +6,28 @@ import os
 
 
 def getConn(envpath: str = ".env"):
-    load_dotenv(envpath)
-    PG_DB = os.getenv("POSTGRES_DB")
-    PG_ADDR = os.getenv("POSTGRES_ADDR")
-    PG_PORT = os.getenv("POSTGRES_PORT")
-    PG_USER = os.getenv("POSTGRES_USER")
-    PG_PW = os.getenv("POSTGRES_PW")
+    WEB_PG_ADDR = os.environ.get('WEB_PG_ADDR', None)
+    db = None
 
-    if (
-        PG_DB is None
-        or PG_ADDR is None
-        or PG_PORT is None
-        or PG_USER is None
-        or PG_PW is None
-    ):
-        raise Exception("Missing required env var(s)")
-    db = DataService(PG_DB, PG_ADDR, int(PG_PORT), PG_USER, PG_PW)
+    if WEB_PG_ADDR:
+        db = DataService(os.environ.get('PG_DB'), WEB_PG_ADDR, os.environ.get('PG_PORT'), os.environ.get('PG_USER'), os.environ.get('PG_PW'))
+    else:
+        load_dotenv(envpath)
+        PG_DB = os.getenv("POSTGRES_DB")
+        PG_ADDR = os.getenv("POSTGRES_ADDR")
+        PG_PORT = os.getenv("POSTGRES_PORT")
+        PG_USER = os.getenv("POSTGRES_USER")
+        PG_PW = os.getenv("POSTGRES_PW")
+
+        if (
+            PG_DB is None
+            or PG_ADDR is None
+            or PG_PORT is None
+            or PG_USER is None
+            or PG_PW is None
+        ):
+            raise Exception("Missing required env var(s)")
+        db = DataService(PG_DB, PG_ADDR, int(PG_PORT), PG_USER, PG_PW)
 
     return db.connect()
 
